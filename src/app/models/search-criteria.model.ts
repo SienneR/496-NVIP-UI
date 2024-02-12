@@ -21,13 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { Component } from '@angular/core';
-/** App Component - main website root element */
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  
+
+/** user entered search criteria to send to API */
+export interface SearchCriteria {
+  keyword: string;
+  cve_id: string;
+  limitCount: number;
+  startDate: string;
+  endDate: string;
+  product: string;
+  vdoLabels: Array<string>;
+  cvssScores: Array<number>;
 }

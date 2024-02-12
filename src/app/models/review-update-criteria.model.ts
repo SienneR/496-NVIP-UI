@@ -21,13 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { Component } from '@angular/core';
-/** App Component - main website root element */
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  
+export interface ReviewUpdateCriteria {
+  username: string;
+  token: string;
+  vulnId: number
+  cveId: string
+  statusId: number
+
+  atomicUpdate: boolean
+  complexUpdate: boolean
+  updateDailyTable: boolean
+
+  updateDescription: boolean
+  updateVDO: boolean
+  updateAffRel: boolean
 }

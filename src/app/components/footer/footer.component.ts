@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 import { Component } from '@angular/core';
-/** App Component - main website root element */
+/** Footer component */
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'nvip-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
 })
-export class AppComponent {
-  
+export class FooterComponent {
+
 }

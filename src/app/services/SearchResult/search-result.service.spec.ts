@@ -21,13 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { Component } from '@angular/core';
-/** App Component - main website root element */
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  
-}
+import { TestBed } from '@angular/core/testing';
+
+import { SearchResultService } from './search-result.service';
+
+describe('SearchResultService', () => {
+  let service: SearchResultService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(SearchResultService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

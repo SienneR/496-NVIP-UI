@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 import { Component } from '@angular/core';
-/** App Component - main website root element */
+/** About page */
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css']
 })
-export class AppComponent {
-  
+export class AboutComponent {
+
 }

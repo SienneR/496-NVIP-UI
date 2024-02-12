@@ -21,13 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { Component } from '@angular/core';
-/** App Component - main website root element */
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  
-}
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SearchDropdownComponent } from './search-dropdown.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+describe('SearchDropdownComponent', () => {
+  let component: SearchDropdownComponent;
+  let fixture: ComponentFixture<SearchDropdownComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, FontAwesomeModule],
+      declarations: [ SearchDropdownComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(SearchDropdownComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

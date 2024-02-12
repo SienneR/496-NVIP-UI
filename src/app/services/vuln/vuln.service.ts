@@ -21,13 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { Component } from '@angular/core';
-/** App Component - main website root element */
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+import { Injectable } from '@angular/core';
+import { ApiService } from '../Api/api-service.service';
+
+@Injectable({
+  providedIn: 'root'
 })
-export class AppComponent {
+export class VulnService {
   
+  constructor(private api: ApiService) { 
+  }
+
+  getByID(id: string, username: string, token: string) {
+    return this.api.vulnServGetByID(id, username, token);
+  }
+
+  searchInfo(username: string, token: string) {
+    return this.api.searchInfo(username, token);
+  }
+
+  getByDate(date: string, token: string) {
+    return this.api.vulnServGetByDate(date, token);
+  }
+
+
 }

@@ -22,12 +22,40 @@
  * SOFTWARE.
  */
 import { Component } from '@angular/core';
-/** App Component - main website root element */
+import { AuthService } from 'src/app/services/Auth/auth-service.service';
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
+/** Header component */
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'nvip-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css'],
 })
-export class AppComponent {
-  
+export class HeaderComponent {
+  faSignOut = faSignOut;
+  constructor(private authService: AuthService, private router: Router) {}
+
+  /** ensure user is logged in before accessing a certain page */
+  isLoggedIn(): boolean {
+    return this.authService.isAuthenticated();
+  }
+
+  /** show first name of user credentials on header */
+  getFirstName(): string | undefined {
+    return this.authService.get()?.firstName;
+  }
+
+  /** log out user triggered by log out button icon on far right */
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['']);
+  }
+
+  /** navigate to a certain page */
+  goTo(link: any) {
+    if (this.isLoggedIn()) {
+      this.router.navigate(link);
+    } else 
+      this.router.navigate(['login'])
+  }
 }
