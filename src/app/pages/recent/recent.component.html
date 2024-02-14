@@ -97,6 +97,39 @@
         >
           No CVEs identified
         </p>
+        <table class="table table-striped table-hover">
+          <thead>
+          <th>
+            Vulnerability ID
+            <i class="fa-solid fa-bug"></i>
+          </th>
+          <th>
+            Summary
+            <i class="fa-solid fa-circle-info"></i>
+          </th>
+          <th>
+            CVSS Severity
+            <i class="fa-solid fa-scale-unbalanced-flip"></i>
+          </th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vuln of vulnMap.cve_list; let vulnIndex = index">
+
+          </tr>
+
+
+        </tbody>
+
+        </table>
+
+
+
+
+
+
+
+
+
         <div class="daily-vuln-dropdown-container">
           <div
             class="daily-vuln-dropdown col-12"
