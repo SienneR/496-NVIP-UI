@@ -90,14 +90,8 @@
 <!-- End day/navigation -->
 
 <!-- Begin results -->
-      <div class="daily-cve-panel col-8">
-        <p
-          class="nvip-cve-panel-empty"
-          [hidden]="vulnMap.cve_list.length !== 0"
-        >
-          No CVEs identified
-        </p>
-        <table class="table table-striped table-hover">
+<div class="daily-cve-panel col-8"> 
+        <table class="table justify-content-center">
           <thead>
           <th>
             Vulnerability ID
@@ -114,22 +108,30 @@
         </thead>
         <tbody>
           <tr *ngFor="let vuln of vulnMap.cve_list; let vulnIndex = index">
-
+            <p
+            class="nvip-cve-panel-empty"
+            [hidden]="vulnMap.cve_list.length !== 0"
+          >
+            No CVEs identified
+          </p>
           </tr>
-
-
         </tbody>
 
         </table>
+</div>
 
 
 
 
 
 
-
-
-
+        <div class="daily-cve-panel col-8">
+          <p
+            class="nvip-cve-panel-empty"
+            [hidden]="vulnMap.cve_list.length !== 0"
+          >
+            No CVEs identified
+          </p>
         <div class="daily-vuln-dropdown-container">
           <div
             class="daily-vuln-dropdown col-12"
