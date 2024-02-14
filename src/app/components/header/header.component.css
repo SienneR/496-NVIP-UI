@@ -67,35 +67,36 @@
 }
 
 .nvip-header-link {
-  display: block;
   text-align: center;
   width: 100%;
   display: inline-block;
   padding: 1em;
   color:#000000;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  font-size: 16.8px;
+  font-size: 16px;
 }
 
 .nvip-header-link:hover {
-  background-color: #4b7699;
+  background-color:lightslategray;
+  /* why doesn't this work?  */
   color: #ffffff !important;
   cursor: pointer;
 }
 
 .nvip-header-user-icon-container {
   float: right;
-  width: 100%;
   display: flex;
+  width: 25%;
   flex-direction: row;
+  margin-top: .5em; 
+  margin-right: .5em; 
 }
 
 .nvip-header-user-icon {
   color: black;
-  font-size: 3.5em;
+  font-size: 2.5em;
   margin-left: auto;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-top: 1;
 }
 
 .nvip-header-user-icon:hover {
@@ -105,8 +106,3 @@
   height: 100%;
 }
 
-.nvip-user-label {
-  color: blue;
-  font-size: 1.2em;
-  margin-top: 1em;
-}

@@ -41,7 +41,11 @@ import { VulnerabilityComponent } from './pages/vulnerability/vulnerability.comp
 import { DailyVulnDropdownComponent } from './components/daily-vuln-dropdown/daily-vuln-dropdown.component';
 import { ApiService } from './services/Api/api-service.service';
 import { AuthService } from './services/Auth/auth-service.service';
+//icons 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+//end icons
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NvipChartComponent } from './components/nvip-chart/nvip-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -70,6 +74,8 @@ import {
 } from '@coreui/angular';
 import { AuthInterceptor } from './services/Auth/app-http-interceptor.service';
 import { NgxEchartsModule } from 'ngx-echarts';
+// Add the icons you want to use to the library
+library.add(fas); 
 @NgModule({
   declarations: [
     AppComponent,
