@@ -35,6 +35,9 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+h1{
+text-align: center;
+}
 
 /** Daily Vulnerability Filter Panel **/
 
