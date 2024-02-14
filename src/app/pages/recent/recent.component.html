@@ -22,7 +22,9 @@
   SOFTWARE.
 -->
 
+
 <div id="nvipContent" class="nvip-content-container">
+  <!-- Begin about -->
   <div class="nvip-about-section col-12">
     <p>
       The National Vulnerability Intelligence Platform (NVIP) is a new
@@ -34,6 +36,9 @@
       page provides a summary of the most recent vulnerabilities found by NVIP.
     </p>
   </div>
+  <!-- End About -->
+
+  <!-- Loading Page -->
   <div class="nvip-daily-vuln-ctn col-12" ng-init="init()">
     <div class="nvip-loading-screen col-12" [hidden]="apiCallDone === true">
       <fa-icon
@@ -44,9 +49,11 @@
         [ngStyle]="{ color: 'black' }"
       ></fa-icon>
       <span [ngStyle]="{ color: 'black' }"
-        >Loading daily vulnerability data...</span
-      >
+        >Loading daily vulnerability data...
+      </span>
     </div>
+    <!-- End Loading Page -->
+    
     <div
       class="nvip-daily-vuln-panel-ctn col-12"
       *ngFor="let vulnMap of dailyVulns; let panelIndex = index"
@@ -117,4 +124,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>x
