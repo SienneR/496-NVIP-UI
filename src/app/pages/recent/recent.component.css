@@ -48,7 +48,10 @@ text-align: center;
   text-align: center;
   margin: 0px 10px;
 }
-
+.badges-column{
+  text-align: right;
+  margin-right: 40px;
+}
 /** Daily Vulnerability Filter Panel **/
 
 .daily-cve-filter-container {
