@@ -35,7 +35,23 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+h1{
+text-align: center;
+}
 
+.title-row {
+  display: flex;
+}
+
+.title-column {
+  flex: 1;
+  text-align: center;
+  margin: 0px 10px;
+}
+.badges-column{
+  text-align: right;
+  margin-right: 40px;
+}
 /** Daily Vulnerability Filter Panel **/
 
 .daily-cve-filter-container {
@@ -191,10 +207,14 @@
   color: #444;
   cursor: pointer;
   font-weight: bold;
-  height: 8em;
+  height: 4em;
   outline: none;
   padding: 0.5em 1.5em;
-  text-align: left;
+  text-align: center;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center; /* vertically center */
 }
 
 .daily-vuln-dropdown:last-child .daily-vuln-dropdown-button {

@@ -22,7 +22,14 @@
   SOFTWARE.
 -->
 
+<div> 
+  <h1> Recent Vulerabilities </h1>
+</div>
+
+
 <div id="nvipContent" class="nvip-content-container">
+ 
+  <!-- Begin about -->
   <div class="nvip-about-section col-12">
     <p>
       The National Vulnerability Intelligence Platform (NVIP) is a new
@@ -34,6 +41,9 @@
       page provides a summary of the most recent vulnerabilities found by NVIP.
     </p>
   </div>
+  <!-- End About -->
+
+  <!-- Loading Page -->
   <div class="nvip-daily-vuln-ctn col-12" ng-init="init()">
     <div class="nvip-loading-screen col-12" [hidden]="apiCallDone === true">
       <fa-icon
@@ -44,9 +54,12 @@
         [ngStyle]="{ color: 'black' }"
       ></fa-icon>
       <span [ngStyle]="{ color: 'black' }"
-        >Loading daily vulnerability data...</span
-      >
+        >Loading daily vulnerability data...
+      </span>
     </div>
+    <!-- End Loading Page -->
+
+    <!-- Begin day/navigation -->
     <div
       class="nvip-daily-vuln-panel-ctn col-12"
       *ngFor="let vulnMap of dailyVulns; let panelIndex = index"
@@ -75,13 +88,25 @@
           <div class="nvip-arrow-right"></div>
         </button>
       </div>
-      <div class="daily-cve-panel col-8">
-        <p
-          class="nvip-cve-panel-empty"
-          [hidden]="vulnMap.cve_list.length !== 0"
-        >
-          No CVEs identified
-        </p>
+<!-- End day/navigation -->
+
+<!-- Begin results -->
+        <div class="daily-cve-panel col-8">
+          <div class="title-row">
+            <div class="title-column">
+            <p>Vulnerability Number</p>
+            </div>
+            <!-- for spacing -->
+            <div class="title-column"></div>
+            <div class="title-column">
+              <p>Description</p>
+              </div>
+              <!-- for spacing -->
+              <div class="title-column"></div>
+              <div class="title-column badges-column">
+              <p>Badges</p>
+              </div>
+          </div>
         <div class="daily-vuln-dropdown-container">
           <div
             class="daily-vuln-dropdown col-12"
@@ -96,25 +121,8 @@
             ></daily-vuln-dropdown>
           </div>
         </div>
-        <div class="nvip-daily-vuln-button-container col-11">
-          <button
-            class="nvip-button nvip-show-more"
-            type="button"
-            (click)="showMore()"
-            [disabled]="isDisabled(true, vulnMap.date)"
-          >
-            <span>Show More</span>
-          </button>
-          <button
-            class="nvip-button nvip-show-less"
-            type="button"
-            (click)="showLess()"
-            [disabled]="isDisabled(false, vulnMap.date)"
-          >
-            <span>Show Less</span>
-          </button>
-        </div>
       </div>
+  <!-- End Results -->
     </div>
   </div>
-</div>
+</div>x
