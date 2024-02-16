@@ -39,6 +39,16 @@ h1{
 text-align: center;
 }
 
+.title-row {
+  display: flex;
+}
+
+.title-column {
+  flex: 1;
+  text-align: center;
+  margin: 0px 10px;
+}
+
 /** Daily Vulnerability Filter Panel **/
 
 .daily-cve-filter-container {

@@ -92,6 +92,21 @@
 
 <!-- Begin results -->
         <div class="daily-cve-panel col-8">
+          <div class="title-row">
+            <div class="title-column">
+            <p>Vulnerability Number</p>
+            </div>
+            <!-- for spacing -->
+            <div class="title-column"></div>
+            <div class="title-column">
+              <p>Description</p>
+              </div>
+              <!-- for spacing -->
+              <div class="title-column"></div>
+              <div class="title-column">
+              <p>Badges</p>
+              </div>
+          </div>
           <p
             class="nvip-cve-panel-empty"
             [hidden]="vulnMap.cve_list.length !== 0"
@@ -111,24 +126,6 @@
               *ngIf="vulnIndex < vulnsDisplayed"
             ></daily-vuln-dropdown>
           </div>
-        </div>
-        <div class="nvip-daily-vuln-button-container col-11">
-          <button
-            class="nvip-button nvip-show-more"
-            type="button"
-            (click)="showMore()"
-            [disabled]="isDisabled(true, vulnMap.date)"
-          >
-            <span>Show More</span>
-          </button>
-          <button
-            class="nvip-button nvip-show-less"
-            type="button"
-            (click)="showLess()"
-            [disabled]="isDisabled(false, vulnMap.date)"
-          >
-            <span>Show Less</span>
-          </button>
         </div>
       </div>
   <!-- End Results -->
