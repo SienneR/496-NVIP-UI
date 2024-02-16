@@ -22,6 +22,12 @@
  * SOFTWARE.
  */
 
+.daily-vuln-dropdown-button :hover{
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+
 .daily-vuln-dropdown-icon-box {
   float: right;
 }
