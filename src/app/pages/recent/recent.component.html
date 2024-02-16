@@ -28,6 +28,7 @@
 
 
 <div id="nvipContent" class="nvip-content-container">
+ 
   <!-- Begin about -->
   <div class="nvip-about-section col-12">
     <p>
@@ -90,41 +91,6 @@
 <!-- End day/navigation -->
 
 <!-- Begin results -->
-<div class="daily-cve-panel col-8"> 
-        <table class="table justify-content-center">
-          <thead>
-          <th>
-            Vulnerability ID
-            <i class="fa-solid fa-bug"></i>
-          </th>
-          <th>
-            Summary
-            <i class="fa-solid fa-circle-info"></i>
-          </th>
-          <th>
-            CVSS Severity
-            <i class="fa-solid fa-scale-unbalanced-flip"></i>
-          </th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let vuln of vulnMap.cve_list; let vulnIndex = index">
-            <p
-            class="nvip-cve-panel-empty"
-            [hidden]="vulnMap.cve_list.length !== 0"
-          >
-            No CVEs identified
-          </p>
-          </tr>
-        </tbody>
-
-        </table>
-</div>
-
-
-
-
-
-
         <div class="daily-cve-panel col-8">
           <p
             class="nvip-cve-panel-empty"

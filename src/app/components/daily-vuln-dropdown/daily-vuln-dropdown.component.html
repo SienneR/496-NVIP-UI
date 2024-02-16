@@ -35,7 +35,7 @@
                 </span>
                 <fa-icon [icon]="faAngleDown" class="nvip-vuln-dropdown-caret"></fa-icon>
         </div>
-        <div class="daily-vuln-dropdown-row-2">
+        <!-- <div class="daily-vuln-dropdown-row-2">
             <span class="daily-vuln-product">Impact :</span>
             <span class="daily-vuln-product product-items" [hidden]="vuln.vdoList.length !== 0">N/A</span>
             <span *ngFor="let vdo of sortBy(2, 'vdoConfidence', VDO_NOUN_GROUPS.LOGICAL_IMPACT)" class="{{getLabelClass(vdo)}} daily-vuln-product product-items">
@@ -46,7 +46,7 @@
             <span *ngFor="let vdo of sortBy(2, 'vdoConfidence', VDO_NOUN_GROUPS.IMPACT_METHOD)" class="{{getLabelClass(vdo)}} daily-vuln-product product-items">
                     {{vdo.vdoLabel}}
             </span>
-        </div>
+        </div> -->
     </div>
 </button>
     <div class="daily-vuln-content" [ngStyle]="{'max-height': (active ? '500px' : '0')}">
@@ -71,7 +71,7 @@
                 </span>
             </div>
         </div>
-        <!-- todo view info to vulnerability page -->
+       
     <div class="daily-vuln-detail" ng-controller="SearchController as search">
         <button class="nvip-button nvip-view-info-button" routerLink="/vulnerability/{{vuln.cveId}}">
             View Info

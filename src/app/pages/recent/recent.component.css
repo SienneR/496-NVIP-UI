@@ -194,10 +194,14 @@ text-align: center;
   color: #444;
   cursor: pointer;
   font-weight: bold;
-  height: 8em;
+  height: 4em;
   outline: none;
   padding: 0.5em 1.5em;
-  text-align: left;
+  text-align: center;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center; /* vertically center */
 }
 
 .daily-vuln-dropdown:last-child .daily-vuln-dropdown-button {
