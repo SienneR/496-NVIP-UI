@@ -59,19 +59,23 @@
 
 .nvip-daily-cve-panel-header .nvip-button {
   border-radius: 0;
-  height: calc(100%);
+  height: calc(50%);
   position: absolute;
-  top: 0;
+  top: 20px;
   width: calc(4%);
   z-index: 1;
 }
 
 .nvip-daily-cve-panel-header .nvip-prev-day {
-  left: 0;
+  left: 30em;
+  border: none;
+  background-color: white;
 }
 
 .nvip-daily-cve-panel-header .nvip-next-day {
-  right: 0;
+  right: 30em;
+  border: none;
+  background-color: white;
 }
 
 .nvip-prev-day .nvip-arrow-left {
@@ -178,11 +182,11 @@
   }
 
   .nvip-prev-day .nvip-arrow-left {
-    border-right: 1.5em solid #ffffff;
+    border-right: 1.5em solid black;
   }
 
   .nvip-next-day .nvip-arrow-right {
-    border-left: 1.5em solid #ffffff;
+    border-left: 1.5em solid black;
   }
 
   .nvip-prev-day:disabled .nvip-arrow-left {
