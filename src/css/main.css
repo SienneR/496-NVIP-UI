@@ -91,26 +91,21 @@
 }
 
 .daily-cve-date {
-  background-color: #213d55;
-  color: #ffffff;
+  color: black;
   font-size: var(--font-size-header-3);
   font-weight: bold;
-  margin: 1em auto 0em auto;
   text-align: center;
 }
 
 .daily-cve-counts {
-  background-color: #0f1c27;
   box-sizing: border-box;
-  color: #ffffff;
-  margin: -0.7em auto 0em auto;
+  color: black;
+  text-align: center;
 }
 
 .daily-cve-counts > p {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
-  margin-left: calc(4%);
-  padding: 0.5em 0em 0.5em 2em;
 }
 
 .daily-cve-panel {
