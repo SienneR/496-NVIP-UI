@@ -23,7 +23,7 @@
  */
 
 .nvip-footer {
-  background-color: #F5F5F5;
+  /* background-color: #F5F5F5;
   color: black;
   display: flex;
   flex-direction: row;
@@ -33,7 +33,15 @@
   padding: 10px;
   position: relative;
   bottom: -10em;
+  text-align: center; */
+  background-color: #F5F5F5;
+  color: black;
   text-align: center;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .nvip-footer > div {
