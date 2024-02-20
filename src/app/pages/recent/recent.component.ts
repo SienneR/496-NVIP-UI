@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Session } from 'src/app/services/Auth/auth-service.service';
 import { CookieService } from 'src/app/services/Cookie/cookie.service';
@@ -33,6 +33,17 @@ export interface VulnMap {
   date: string;
   cve_list: Array<any>;
 }
+
+/* Code for pagination module implementation */
+// export class PaginationComponent{
+//     currentPage: number = 1; 
+
+//     //change page function
+//     changePage(page: number) void {
+//       this.currentPage = page; 
+//     }
+
+// }
 
 /** Array of date-list vuln pages to navigate through */
 export interface VulnMaps extends Array<VulnMap> {}
