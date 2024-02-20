@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { PaginationComponent } from "@coreui/angular";
+import { PaginationComponent } from "./component/pagination/pagination.component";
 
 @NgModule({
     imports: [CommonModule],

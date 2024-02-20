@@ -1,7 +1,7 @@
 Pagination
 
 <ul class = "pagination">
-    <li *ngFor = "let Page of Pages" 
+    <li *ngFor = "let page of pages" 
         [ngClass]="{'page-item': true, active: currentPage === page}"
         (click)="changePage.emit(page)"
         >

@@ -63,7 +63,7 @@ export class RecentComponent implements OnInit {
   // this goes in reverse order Ex. [today, yesterday, ...]
   dailyVulns: VulnMaps = [];
   // store how many vulns are currently being displayed
-  vulnsDisplayed: number = 5;
+  vulnsDisplayed: number = 7;
   // emitter for daily vuln dropdowns - close all other dropdowns when one is opened
   currentSelected: number = -1;
   // show/hide loading spinner

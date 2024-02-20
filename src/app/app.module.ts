@@ -74,6 +74,7 @@ import {
 } from '@coreui/angular';
 import { AuthInterceptor } from './services/Auth/app-http-interceptor.service';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { PaginationModule } from './components/pagination/pagination.module';
 // Add the icons you want to use to the library
 library.add(fas); 
 @NgModule({
@@ -124,6 +125,7 @@ library.add(fas);
     NavModule,
     TabsModule,
     AlertModule,
+    PaginationModule, 
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })
