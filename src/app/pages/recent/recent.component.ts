@@ -51,6 +51,9 @@ export class RecentComponent {
   // Items per page
   itemsPerPage: number = 10;
 
+  //Number of vulnerabilties 
+  numberOfEntries: number; 
+
   // Calculate the total number of pages
   get totalPages(): number {
     return Math.ceil(this.testData.length / this.itemsPerPage);
@@ -69,10 +72,10 @@ export class RecentComponent {
 
   constructor() {
     // Generating test data
-    const numberOfEntries = this.getRandomNumber(20, 60);
+     this.numberOfEntries = this.getRandomNumber(20, 60);
 
     // Generate test data entries
-    for (let i = 0; i < numberOfEntries; i++) {
+    for (let i = 0; i < this.numberOfEntries; i++) {
       this.testData.push({
         CveID: `CVE-2024-${i + 1}`,
         Summary: `This is the summary for CVE-2024-${i + 1}`,
@@ -99,7 +102,38 @@ export class RecentComponent {
     const endIndex = startIndex + this.itemsPerPage;
     return this.testData.slice(startIndex, endIndex);
   }
+ 
+  getStartIndex(): number{
+    return (this.currentPage - 1) * this.itemsPerPage;
+  }
+
+  getEndIndex(): number{
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  if (this.currentPage === (this.totalPages)){
+    //number of empty spaces on the page 
+     const emptySpaces = (startIndex + this.itemsPerPage) - this.numberOfEntries;
+    if (emptySpaces === 9){
+      return startIndex + 1; 
+    }
+    return this.numberOfEntries;
+  }
+  return startIndex + this.itemsPerPage;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

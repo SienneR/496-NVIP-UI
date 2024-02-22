@@ -44,11 +44,20 @@ h1{
   align-items: center;
 }
 
+.pagination-col{
+  display: flex; 
+  padding-top: 7em;
+  align-items: flex-end;
+}
 
+.blue-underline-text{
+  color: blue; 
+  --cui-table-striped-color: blue; 
+}
 
-
-
-
+.blue-underline-text:hover{
+  text-decoration: underline;
+}
 
 
 
