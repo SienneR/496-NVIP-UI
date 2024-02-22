@@ -25,9 +25,24 @@
 /** Daily CVE Page Styles **/
 
 
+h1{
+  font-size:45px;
+}
 
+.col{
+  display: flex; 
+  flex-direction: column; 
+}
 
+.for-spacing{
+  padding: 1em; 
+}
 
+.center-this{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
 
 
 

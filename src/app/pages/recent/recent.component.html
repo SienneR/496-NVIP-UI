@@ -24,26 +24,47 @@
 
 <!-- Header -->
 <div class = "container">
+  <!-- Row 1 -->
   <div class = "row">
     <h1> Browse Vulnerabilities </h1>
   </div>
 
-<!-- Pagination -->
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item" [class.disabled]="currentPage === 1">
-      <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a>
-    </li>
-    <!-- Iterate over page numbers -->
-    <li class="page-item" *ngFor="let pageNumber of totalPagesArray()">
-      <a class="page-link" (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</a>
-    </li>
-    <li class="page-item" [class.disabled]="currentPage === totalPages">
-      <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a>
-    </li>
-  </ul>
-</nav>
-<!-- End of Pagination -->
+  <!-- for spacing -->
+  <div class = "row for-spacing"> 
+    <h2> </h2>
+  </div>
+
+  <!-- Row 3 -->
+  <div class = "row">
+    <div class = "col">
+    <h2> Descriptions</h2>
+    <p>Vulnerability ID: this attribute desribes the index of the vulnerability found <p>
+    <p>Summary: this attribute shows a brief description of the vulerability<p>
+    <p>Severity: this attribute describes the severity of the vulnerability, from 'Low' to 'High'<p>
+    </div>
+    <div class = "col center-this">
+     <h2> {{testData.length}} vulnerabilities found </h2>
+     <h2> Showing results {{(this.currentPage - 1) * this.itemsPerPage}} through {{((this.currentPage - 1) * this.itemsPerPage) + this.itemsPerPage}}</h2>
+    </div>
+    <!-- Pagination -->
+    <div class = "col">
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a>
+          </li>
+          <!-- Iterate over page numbers -->
+          <li class="page-item" *ngFor="let pageNumber of totalPagesArray()">
+            <a class="page-link" (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- End of Pagination -->
+    </div>
+  </div>
 </div>
 <!-- End header -->
 
