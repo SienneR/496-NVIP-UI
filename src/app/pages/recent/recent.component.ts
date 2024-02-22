@@ -56,6 +56,17 @@ export class RecentComponent {
     return Math.ceil(this.testData.length / this.itemsPerPage);
   }
 
+  // Function to update the current page
+  goToPage(pageNumber: number): void {
+    if (pageNumber >= 1 && pageNumber <= this.totalPages) {
+      this.currentPage = pageNumber;
+    }
+  }
+
+  totalPagesArray(): number[] {
+    return Array.from({ length: this.totalPages }, (_, index) => index + 1);
+  }
+
   constructor() {
     // Generating test data
     const numberOfEntries = this.getRandomNumber(20, 60);
