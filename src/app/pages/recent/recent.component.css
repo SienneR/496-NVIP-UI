@@ -23,7 +23,49 @@
  */
 
 /** Daily CVE Page Styles **/
-:root {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ****************************************************************************************************************
+OLD CODE PRIOR TO MODIFICATION 21 FEB 2024
+ ****************************************************************************************************************  */
+/* :root {
   --font-size: 1em;
   --font-size-lg: 1.2em;
   --filter-container-width: 32em;
@@ -54,7 +96,7 @@ text-align: center;
 }
 /** Daily Vulnerability Filter Panel **/
 
-.daily-cve-filter-container {
+/* .daily-cve-filter-container {
   background-color: #ffffff;
   border-radius: 0px 25px 25px 0px;
   height: calc(30em - 12px);
@@ -169,7 +211,7 @@ text-align: center;
 }
 
 /** Daily CVE Panels **/
-.nvip-daily-cve-panel-container {
+/* .nvip-daily-cve-panel-container {
   margin: 0em auto 0em auto;
 }
 
@@ -213,8 +255,8 @@ text-align: center;
   text-align: center;
   text-align: center;
   display: flex;
-  justify-content: center; /* horizontally center */
-  align-items: center; /* vertically center */
+  justify-content: center;  horizontally center 
+  align-items: center;  vertically center 
 }
 
 .daily-vuln-dropdown:last-child .daily-vuln-dropdown-button {
@@ -227,9 +269,9 @@ text-align: center;
   max-width: 90%;
   margin-top: calc(0.6em - 2px);
   position: relative;
-}
+} */ 
 
-/** Daily Vulnerability Directive Styles **/
+/** Daily Vulnerability Directive Styles 
 .daily-vuln-dropdown-button .vuln-vdo-label:first-child:before {
   color: #000000;
   content: " : ";
@@ -248,7 +290,7 @@ text-align: center;
   content: "";
 }
 
-/** Temp VDO Label styling **/
+/** Temp VDO Label styling 
 .daily-vuln-dropdown-row-2 .vuln-vdo-label {
   text-transform: capitalize;
 }
@@ -262,7 +304,7 @@ text-align: center;
   content: "";
 }
 
-/** End Daily Vulnerability Directive Styles**/
+/** End Daily Vulnerability Directive Styles
 
 [class^="daily-vuln-dropdown-row-"] {
   max-height: var(--font-size);
@@ -353,7 +395,7 @@ text-align: center;
   margin: 0em auto;
 }
 
-/** Old Vulnerability table styles **/
+/** Old Vulnerability table styles 
 
 .daily-cve-table {
   background-color: #f7f7f8;
@@ -375,7 +417,7 @@ text-align: center;
   text-align: center;
 }
 
-/** Media Queries **/
+/** Media Queries 
 @media screen and (min-width: 1000px) {
   :root {
     --font-size: 1.3em;
@@ -419,4 +461,5 @@ text-align: center;
     font-size: calc(0.75 * var(--font-size));
     margin-top: 0.5em;
   }
-}
+} 
+*/
