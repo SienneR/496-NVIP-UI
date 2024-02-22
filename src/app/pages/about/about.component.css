@@ -22,8 +22,42 @@
  * SOFTWARE.
  */
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.nvip-content {
+  padding: 10px;
+}
+
+.nvip-image {
+  width: auto;
+  height: auto;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+.nvip-heading {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.nvip-features {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.nvip-features li {
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}
+
+.nvip-features a {
+  color: #007bff;
+  text-decoration: none;
+}
