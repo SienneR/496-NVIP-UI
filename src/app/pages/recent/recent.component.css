@@ -80,7 +80,10 @@ h1{
 /* Control size of pagination bar via text in pagination */
 .pagination{
   --cui-pagination-font-size: 1.4rem;
+  --cui-pagination-active-bg: #283c54; 
+  --cui-pagination-active-border-color: #283c54; 
 }
+
 
 /* for CVE ID column to indicate it is a link*/
 .blue-underline-text{
