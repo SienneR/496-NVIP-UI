@@ -28,7 +28,7 @@
 /* Style for top section with NVIP pic and title */
 .style-at-top{
 height:auto; 
-background-color: slategray;
+background-color: #283c54;
 color: white; 
 display: flex; 
 flex-direction: row; 
@@ -36,13 +36,17 @@ align-items: flex-end;
 }
 
 .bottom-text{
-margin-top: 5.25rem; 
-/* If you change the above, make sure to modify h1 top margin */
 margin-left: 2rem; 
 }
 
 .img-col{
-text-align: right;  
+text-align: right; 
+align-items: inherit; 
+}
+
+img{
+  width: 650px; 
+  height: auto; 
 }
 /* End style for top row */
 
