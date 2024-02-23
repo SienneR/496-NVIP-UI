@@ -25,8 +25,30 @@
 /** Daily CVE Page Styles **/
 
 
+/* Style for top section with NVIP pic and title */
+.style-at-top{
+height:auto; 
+background-color: slategray;
+color: white; 
+display: flex; 
+flex-direction: row; 
+}
+
+.bottom-text{
+margin-top: 5.25rem; 
+/* If you change the above, make sure to modify h1 top margin */
+margin-left: 2rem; 
+}
+
+.img-col{
+text-align: right;  
+}
+/* End style for top row */
+
+
 h1{
   font-size:40px;
+  margin-top: 2rem; 
 }
 
 .col{
