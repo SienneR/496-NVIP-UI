@@ -23,7 +23,118 @@
  */
 
 /** Daily CVE Page Styles **/
-:root {
+
+
+/* Style for top section with NVIP pic and title */
+.style-at-top{
+height:auto; 
+background-color: #283c54;
+color: white; 
+display: flex; 
+flex-direction: row; 
+align-items: flex-end; 
+}
+
+.bottom-text{
+margin-left: 2rem; 
+margin-bottom: 1rem; 
+}
+
+.img-col{
+text-align: right; 
+align-items: inherit; 
+}
+
+img{
+  width: 650px; 
+  height: auto; 
+}
+/* End style for top row */
+
+
+h1{
+  font-size:40px;
+  margin-top: 2rem; 
+}
+
+.col{
+  display: flex; 
+  flex-direction: column; 
+}
+
+.for-spacing{
+  padding: 1em; 
+}
+
+.center-this{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.pagination-col{
+  display: flex; 
+  padding-top: 7em;
+  align-items: flex-end;
+}
+
+/* Control size of pagination bar via text in pagination */
+.pagination{
+  --cui-pagination-font-size: 1.4rem;
+  --cui-pagination-active-bg: #283c54; 
+  --cui-pagination-active-border-color: #283c54; 
+}
+
+
+/* for CVE ID column to indicate it is a link*/
+.blue-underline-text{
+  color: blue; 
+  --cui-table-striped-color: blue; 
+}
+
+.blue-underline-text:hover{
+  text-decoration: underline;
+}
+
+/* For table */
+table{
+  font-size:18px;
+}
+
+/* Make container borders smaller */
+.container{
+  max-width: 1550px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ****************************************************************************************************************
+OLD CODE PRIOR TO MODIFICATION 21 FEB 2024
+ ****************************************************************************************************************  */
+/* :root {
   --font-size: 1em;
   --font-size-lg: 1.2em;
   --filter-container-width: 32em;
@@ -54,7 +165,7 @@ text-align: center;
 }
 /** Daily Vulnerability Filter Panel **/
 
-.daily-cve-filter-container {
+/* .daily-cve-filter-container {
   background-color: #ffffff;
   border-radius: 0px 25px 25px 0px;
   height: calc(30em - 12px);
@@ -169,7 +280,7 @@ text-align: center;
 }
 
 /** Daily CVE Panels **/
-.nvip-daily-cve-panel-container {
+/* .nvip-daily-cve-panel-container {
   margin: 0em auto 0em auto;
 }
 
@@ -213,8 +324,8 @@ text-align: center;
   text-align: center;
   text-align: center;
   display: flex;
-  justify-content: center; /* horizontally center */
-  align-items: center; /* vertically center */
+  justify-content: center;  horizontally center 
+  align-items: center;  vertically center 
 }
 
 .daily-vuln-dropdown:last-child .daily-vuln-dropdown-button {
@@ -227,9 +338,9 @@ text-align: center;
   max-width: 90%;
   margin-top: calc(0.6em - 2px);
   position: relative;
-}
+} */ 
 
-/** Daily Vulnerability Directive Styles **/
+/** Daily Vulnerability Directive Styles 
 .daily-vuln-dropdown-button .vuln-vdo-label:first-child:before {
   color: #000000;
   content: " : ";
@@ -248,7 +359,7 @@ text-align: center;
   content: "";
 }
 
-/** Temp VDO Label styling **/
+/** Temp VDO Label styling 
 .daily-vuln-dropdown-row-2 .vuln-vdo-label {
   text-transform: capitalize;
 }
@@ -262,7 +373,7 @@ text-align: center;
   content: "";
 }
 
-/** End Daily Vulnerability Directive Styles**/
+/** End Daily Vulnerability Directive Styles
 
 [class^="daily-vuln-dropdown-row-"] {
   max-height: var(--font-size);
@@ -353,7 +464,7 @@ text-align: center;
   margin: 0em auto;
 }
 
-/** Old Vulnerability table styles **/
+/** Old Vulnerability table styles 
 
 .daily-cve-table {
   background-color: #f7f7f8;
@@ -375,7 +486,7 @@ text-align: center;
   text-align: center;
 }
 
-/** Media Queries **/
+/** Media Queries 
 @media screen and (min-width: 1000px) {
   :root {
     --font-size: 1.3em;
@@ -419,4 +530,5 @@ text-align: center;
     font-size: calc(0.75 * var(--font-size));
     margin-top: 0.5em;
   }
-}
+} 
+*/

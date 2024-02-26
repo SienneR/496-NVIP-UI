@@ -22,7 +22,118 @@
   SOFTWARE.
 -->
 
-<div> 
+<!-- Theme Stuff -->
+  <div class = "row style-at-top">
+    <div class = "col bottom-text">
+  <h1> National Vulnerability Intelligence Platform </h1>
+    </div>
+    <!-- for photo -->
+    <div class = "col img-col">
+      <img src="assets/images/nvip-simple-logo.jpg" alt="NVIP" />
+    </div>
+  </div>
+
+<!-- Header -->
+<div class = "container">
+  <!-- Row 1 -->
+  <div class = "row">
+    <h1> Browse Vulnerabilities </h1>
+  </div>
+
+  <!-- for spacing -->
+  <div class = "row for-spacing"> 
+    <h2> </h2>
+  </div>
+
+  <!-- Row 3 -->
+  <div class = "row">
+    <div class = "col">
+    <h2> Descriptions</h2>
+    <p>Vulnerability ID: this attribute desribes the index of the vulnerability found <p>
+    <p>Summary: this attribute shows a brief description of the vulerability<p>
+    <p>Severity: this attribute describes the severity of the vulnerability, from 'Low' to 'High'<p>
+    </div>
+    <div class = "col center-this">
+     <h2> {{testData.length}} vulnerabilities found </h2>
+     <h2> Showing results {{getStartIndex()+1}} through {{getEndIndex()}}</h2>
+    </div>
+    <!-- Pagination -->
+    <div class = "col pagination-col">
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a>
+          </li>
+          <!-- Iterate over page numbers -->
+          <li class="page-item" *ngFor="let pageNumber of totalPagesArray()">
+            <a class="page-link" (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- End of Pagination -->
+    </div>
+  </div>
+</div>
+<!-- End header -->
+
+
+<!-- Begin Results Table -->
+<div class = "container">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Vuln ID</th>
+      <th scope="col">Summary</th>
+      <th scope="col">Severity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vuln of getItemsForCurrentPage(); let i = index">
+      <td class = "blue-underline-text">{{ vuln.CveID }}</td>
+      <td>{{ vuln.Summary }}</td>
+      <td>{{ vuln.Severity }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- End Results Table -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- // ****************************************************************************************************************
+// OLD CODE PRIOR TO MODIFICATION 21 FEB 2024
+// **************************************************************************************************************** -->
+<!--
+<div>
   <h1> Recent Vulerabilities </h1>
 </div>
 
@@ -30,7 +141,7 @@
 <div id="nvipContent" class="nvip-content-container">
  
   <!-- Begin about -->
-  <div class="nvip-about-section col-12">
+<!--  <div class="nvip-about-section col-12">
     <p>
       The National Vulnerability Intelligence Platform (NVIP) is a new
       generation vulnerability database, a public platform where the software
@@ -44,7 +155,7 @@
   <!-- End About -->
 
   <!-- Loading Page -->
-  <div class="nvip-daily-vuln-ctn col-12" ng-init="init()">
+<!--  <div class="nvip-daily-vuln-ctn col-12" ng-init="init()">
     <div class="nvip-loading-screen col-12" [hidden]="apiCallDone === true">
       <fa-icon
         [icon]="faSpinner"
@@ -60,7 +171,7 @@
     <!-- End Loading Page -->
 
     <!-- Begin day/navigation -->
-    <div
+<!--    <div
       class="nvip-daily-vuln-panel-ctn col-12"
       *ngFor="let vulnMap of dailyVulns; let panelIndex = index"
       [hidden]="panelIndex !== dailyVulnIndex"
@@ -90,24 +201,35 @@
       </div>
 <!-- End day/navigation -->
 
+<!-- Begin Pagination -->
+<!-- <pagination 
+    [currentPage] = "currentPage" 
+    [limit]="15" 
+    [total]="1000" 
+    (changePage)="changePage($event)"
+    >
+</pagination> -->
+
 <!-- Begin results -->
-        <div class="daily-cve-panel col-8">
-          <div class="title-row">
+<!--        <div class="daily-cve-panel col-8">
+          <!-- Begin Title Row -->
+<!--          <div class="title-row">
             <div class="title-column">
             <p>Vulnerability Number</p>
             </div>
             <!-- for spacing -->
-            <div class="title-column"></div>
+<!--            <div class="title-column"></div>
             <div class="title-column">
               <p>Description</p>
               </div>
               <!-- for spacing -->
-              <div class="title-column"></div>
+<!--              <div class="title-column"></div>
               <div class="title-column badges-column">
               <p>Badges</p>
               </div>
           </div>
-        <div class="daily-vuln-dropdown-container">
+          <!-- End title row -->
+<!--        <div class="daily-vuln-dropdown-container">
           <div
             class="daily-vuln-dropdown col-12"
             *ngFor="let vuln of vulnMap.cve_list; let vulnIndex = index"
@@ -123,6 +245,6 @@
         </div>
       </div>
   <!-- End Results -->
-    </div>
+<!--    </div>
   </div>
-</div>x
+</div> -->
