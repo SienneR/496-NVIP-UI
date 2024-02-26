@@ -10,7 +10,6 @@
 }
 
 .vuln-content > * {
-	margin-left: 0.5em;
 	font-family: 'Source Sans 3',Helvetica,Arial,sans-serif;
 }
 
@@ -20,6 +19,11 @@
 	margin: 0 20em;
 	margin-top: 2em;
 	width:100%;
+}
+
+.quick-info {
+	background-color: #f0f7fd;
+	padding: 15px 15px 15px 15px;
 }
 
 .cve-search-panel, .vuln-tabbed-panel {
@@ -39,7 +43,7 @@
 }
 
 .vuln-detail-header {
-	font-size: 2.4em;
+	font-size: 2.1em;
 	font-weight: bold;
 }
 
@@ -127,7 +131,8 @@
 	font-size: 0.95em;
 	font-weight: bold;
 	line-height: 1.8em;
-	margin: 1em 1em 3em 1em;
+	margin-top: 12px;
+	margin-bottom: 12px;
 }
 
 .vuln-description > table {
@@ -159,10 +164,33 @@
 	padding: 5px;
 }
 
+.vuln-references {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.vuln-weakness-enumeration {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.vuln-affected-software {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.vuln-change-history {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
 /** Severity Tab Styles */
 
-.vuln-severity- {
-	min-height: 200px;
+.vuln-severity-panel{
+	background-color: #F4F5F5;
+	padding: 15px 15px 15px 15px;
+	margin-top: 12px;
+	margin-bottom: 12px;
 }
 
 .vuln-severity-tab > * {
