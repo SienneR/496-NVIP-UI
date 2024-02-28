@@ -27,3 +27,7 @@
     margin-right: auto;
     width: 50%;
   }
+
+  .row-for-spacing{
+    height: 22em; 
+  }

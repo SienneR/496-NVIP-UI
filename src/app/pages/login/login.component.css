@@ -124,3 +124,6 @@
   .login-submit-button {
       position: absolute;
   }
+  .row-for-spacing{
+    height: 37em; 
+  }
