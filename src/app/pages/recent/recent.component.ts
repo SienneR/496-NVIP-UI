@@ -26,6 +26,8 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { Session } from 'src/app/services/Auth/auth-service.service';
 import { CookieService } from 'src/app/services/Cookie/cookie.service';
 import { VulnService } from 'src/app/services/vuln/vuln.service';
+import { Router } from '@angular/router'
+
 /** Recent Vulnerabilities page */
 
 //Vulnerability Interface
@@ -70,7 +72,7 @@ export class RecentComponent {
     return Array.from({ length: this.totalPages }, (_, index) => index + 1);
   }
 
-  constructor() {
+  constructor(private router: Router) {
     // Generating test data
     this.numberOfEntries = this.getRandomNumber(20, 60);
 
@@ -83,6 +85,10 @@ export class RecentComponent {
         Severity: this.getRandomSeverity()
       });
     }
+  }
+
+  navigateToVulnerability(vulnId: string) {
+    this.router.navigate(['/vulnerability', vulnId]);
   }
 
   // Function to generate a random number between min and max (inclusive)

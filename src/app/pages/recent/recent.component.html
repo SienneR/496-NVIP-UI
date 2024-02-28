@@ -53,7 +53,7 @@
       <p>
       <p>Summary: this attribute shows a brief description of the vulerability
       <p>
-      <p>Severity: this attribute describes the severity of the vulnerability, from 'Low' to 'High'
+      <p>Severity: this attribute describes the severity of the vulnerability, from 'Low' to 'Critical'
       <p>
     </div>
     <div class="col center-this">
@@ -95,7 +95,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let vuln of getItemsForCurrentPage(); let i = index">
+      <tr *ngFor="let vuln of getItemsForCurrentPage(); let i = index" (click)="navigateToVulnerability(vuln.CveID)">
         <td class="blue-underline-text">{{ vuln.CveID }}</td>
         <td>{{ vuln.Summary }}</td>
         <td>{{ vuln.Severity }}</td>
