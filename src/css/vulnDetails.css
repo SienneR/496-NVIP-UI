@@ -10,15 +10,41 @@
 }
 
 .vuln-content > * {
-	margin-left: 0.5em;
+	font-family: 'Source Sans 3',Helvetica,Arial,sans-serif;
 }
 
 .vuln-content {
 	flex-direction: column;
 	flex-wrap: wrap;
-	margin: 0 auto;
+	margin: 0 20em;
 	margin-top: 2em;
 	width:100%;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 24px
+}
+
+/** Table Header cells */
+table.table-striped.detail-table > thead > tr > th {
+    background-color: #12659C;
+    color: white;
+    font-size: 1.8rem;
+    padding:1px,1px,1px,25px;
+}
+
+/** Table cells */
+table.table-striped.detail-table > tbody > tr > td {
+    font-size: 1.5rem;
+    padding: 1px;
+	height: auto;
+}
+
+.quick-info {
+	background-color: #f0f7fd;
+	padding: 15px 15px 15px 15px;
 }
 
 .cve-search-panel, .vuln-tabbed-panel {
@@ -37,10 +63,15 @@
 	margin: 5px 10px 3px 10px;
 }
 
-.vuln-cve-number {
-	float: left;
-	font-size: 1.75em;
+.vuln-detail-header {
+	font-size: 2.1em;
 	font-weight: bold;
+}
+
+.vuln-detail-description {
+	font-size: 1.2em;
+	line-height: 1.5;
+	font-weight: normal;
 }
 
 .vuln-search-bar {
@@ -117,24 +148,19 @@
 	display: block;
 }
 
-.vuln-description > p {
+.vuln-description {
 	font-size: 0.95em;
 	font-weight: bold;
 	line-height: 1.8em;
-	margin: 1em 1em 3em 1em;
+	margin-top: 12px;
+	margin-bottom: 12px;
 }
 
-.vuln-description > table {
-	background-color: #f7f7f8;
+.vuln-description {
 	border-collapse: collapse;
 	margin: 0 auto;
 	position: relative;
 	height: inherit;
-}
-
-.vuln-description table, tr, td {
-	border: 1px solid #dadada;
-	height: 3em;
 }
 
 .vuln-description table tr:first-child td:first-child {
@@ -145,18 +171,40 @@
 	border: 0px 0px 6px 0px;
 }
 
-.vuln-description > table  * {
+.vuln-description {
 	text-align: left;
 }
 
-.vuln-description > table td {
+.vuln-description {
 	padding: 5px;
+}
+
+.vuln-references {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.vuln-weakness-enumeration {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.vuln-affected-software {
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+.vuln-change-history {
+	margin-top: 12px;
+	margin-bottom: 12px;
 }
 
 /** Severity Tab Styles */
 
-.vuln-severity- {
-	min-height: 200px;
+.vuln-severity-panel{
+	background-color: #F4F5F5;
+	padding: 15px 15px 15px 15px;
+	margin-bottom: 12px;
 }
 
 .vuln-severity-tab > * {

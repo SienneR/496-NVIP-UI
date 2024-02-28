@@ -34,11 +34,11 @@
   position: relative;
   bottom: -10em;
   text-align: center; */
-  background-color: #F5F5F5;
-  color: black;
+  background: #333333;
+  color: white;
   text-align: center;
   padding: 10px;
-  position: fixed;
+  flex-shrink: 0;
   left: 0;
   bottom: 0;
   width: 100%;
