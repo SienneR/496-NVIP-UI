@@ -52,7 +52,7 @@ export class RecentComponent {
   itemsPerPage: number = 10;
 
   //Number of vulnerabilties 
-  numberOfEntries: number; 
+  numberOfEntries: number;
 
   // Calculate the total number of pages
   get totalPages(): number {
@@ -72,13 +72,14 @@ export class RecentComponent {
 
   constructor() {
     // Generating test data
-     this.numberOfEntries = this.getRandomNumber(20, 60);
+    this.numberOfEntries = this.getRandomNumber(20, 60);
 
     // Generate test data entries
     for (let i = 0; i < this.numberOfEntries; i++) {
+      const randomFourDigits = Math.floor(1000 + Math.random() * 9000);
       this.testData.push({
-        CveID: `CVE-2024-${i + 1}`,
-        Summary: `This is the summary for CVE-2024-${i + 1}`,
+        CveID: `CVE-2024-${randomFourDigits}`,
+        Summary: `This is the summary for CVE-2024-${randomFourDigits}`,
         Severity: this.getRandomSeverity()
       });
     }
@@ -91,7 +92,7 @@ export class RecentComponent {
 
   // Function to generate a random severity
   private getRandomSeverity(): string {
-    const severities = ['Low', 'Medium', 'High'];
+    const severities = ['Low', 'Medium', 'High', 'Critical'];
     const randomIndex = Math.floor(Math.random() * severities.length);
     return severities[randomIndex];
   }
@@ -102,22 +103,22 @@ export class RecentComponent {
     const endIndex = startIndex + this.itemsPerPage;
     return this.testData.slice(startIndex, endIndex);
   }
- 
-  getStartIndex(): number{
+
+  getStartIndex(): number {
     return (this.currentPage - 1) * this.itemsPerPage;
   }
 
-  getEndIndex(): number{
-  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-  if (this.currentPage === (this.totalPages)){
-    //number of empty spaces on the page 
-     const emptySpaces = (startIndex + this.itemsPerPage) - this.numberOfEntries;
-    if (emptySpaces === 9){
-      return startIndex + 1; 
+  getEndIndex(): number {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    if (this.currentPage === (this.totalPages)) {
+      //number of empty spaces on the page 
+      const emptySpaces = (startIndex + this.itemsPerPage) - this.numberOfEntries;
+      if (emptySpaces === 9) {
+        return startIndex + 1;
+      }
+      return this.numberOfEntries;
     }
-    return this.numberOfEntries;
-  }
-  return startIndex + this.itemsPerPage;
+    return startIndex + this.itemsPerPage;
   }
 }
 
@@ -148,11 +149,11 @@ export class RecentComponent {
 
 // /* Code for pagination module implementation */
 // // export class PaginationComponent{
-// //     currentPage: number = 1; 
+// //     currentPage: number = 1;
 
 // //     //change page function
 // //     changePage(page: number) void {
-// //       this.currentPage = page; 
+// //       this.currentPage = page;
 // //     }
 
 // // }
