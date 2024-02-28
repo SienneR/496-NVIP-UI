@@ -23,25 +23,25 @@
  */
 
 .nvip-footer {
-  /* background-color: #F5F5F5;
-  color: black;
+  background-color: #333333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   min-height: 10em;
-  margin-top: 1em;
-  padding: 10px;
-  position: relative;
-  bottom: -10em;
-  text-align: center; */
+  margin-top: 35em;
+  /*
   background: #333333;
   color: white;
   text-align: center;
   padding: 10px;
-  flex-shrink: 0;
-  left: 0;
   bottom: 0;
   width: 100%;
+  position: absolute;
+  */
 }
 
 .nvip-footer > div {
@@ -56,7 +56,7 @@
 }
 
 .nvip-footer-contents a {
-	color: #000000;
+	color: #ffffff;
 }
 
 .nvip-footer-contents a:hover {
