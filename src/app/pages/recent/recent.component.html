@@ -92,9 +92,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let vuln of getItemsForCurrentPage(); let i = index">
-      <td class = "blue-underline-text">{{ vuln.CveID }}</td>
-      <td>{{ vuln.Summary }}</td>
-      <td>{{ vuln.Severity }}</td>
+      <td class = "blue-underline-text side-cols">{{ vuln.CveID }}</td>
+      <td class="summary-col">{{ vuln.Summary }}</td>
+      <td class="side-cols">{{ vuln.Severity }}</td>
     </tr>
   </tbody>
 </table>

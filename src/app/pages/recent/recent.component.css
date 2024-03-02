@@ -105,9 +105,9 @@ table{
 .container{
   max-width: 1550px;
 }
-
-
-
+.side-cols{
+  width:15rem;
+}
 
 
 

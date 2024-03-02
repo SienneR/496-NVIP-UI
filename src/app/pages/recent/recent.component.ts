@@ -78,7 +78,31 @@ export class RecentComponent {
     for (let i = 0; i < this.numberOfEntries; i++) {
       this.testData.push({
         CveID: `CVE-2024-${i + 1}`,
-        Summary: `This is the summary for CVE-2024-${i + 1}`,
+        Summary: `This is the summary for CVE-2024-${i + 1}     - Show him GitHub 
+        - Show him the improvements made 
+            - Navbar 
+            - Design on recent vulnerabilities 
+            - Footer 
+        - Ask for comments on improvements? 
+            - 
+        - Ask about the daily page (show in VS)
+        - Review page = Home page? Why? What does he want in this page? 
+        - Mention I am currently working on pagination
+            - Having some issues
+            - Hope to be done in about 1 weeks time 
+        - Open the floor to allow christian and zolbo to discuss what they are doing
+    
+    - Implement as bootstrap cards 
+    - Not similar colors as NIST -> more gray theme 
+    - When open NVIP directly go to something like search results page from NIST 
+    
+    - Upon logon 
+        - Show recent vulnerabilities page modified like NIST Search result page 
+        - Modify on click to look like NIST description page 
+    
+    - Create sample data array to use instead of backend/api to render on pages
+    - 
+    - Use bootstrap with the application `,
         Severity: this.getRandomSeverity()
       });
     }
