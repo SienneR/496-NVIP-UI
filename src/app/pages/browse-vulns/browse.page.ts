@@ -30,7 +30,10 @@ import { VulnService } from 'src/app/services/vuln/vuln.service';
 
 //Vulnerability Interface
 interface Vulnerability {
+  VulnID: string;   
+  VulnVersionID: string; 
   CveID: string;
+  CreatedAt: string; 
   Summary: string;
   Severity: string;
 }
@@ -77,7 +80,10 @@ export class BrowsePage {
     // Generate test data entries
     for (let i = 0; i < this.numberOfEntries; i++) {
       this.testData.push({
+        VulnID: `12345`,
+        VulnVersionID: '6789',
         CveID: `CVE-2024-${i + 1}`,
+        CreatedAt: `5pm`,
         Summary: `This is the summary for CVE-2024-${i + 1}`,
         Severity: this.getRandomSeverity()
       });
