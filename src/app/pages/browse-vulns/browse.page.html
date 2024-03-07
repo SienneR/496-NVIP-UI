@@ -84,11 +84,15 @@
 <div class="container"> 
     <div *ngFor="let vuln of getItemsForCurrentPage(); let i = index" class="card-container">
       <div class="card">
-        <h5 class="card-header">{{ vuln.CveID }}</h5>
+        <div class="card-header">
+           <h2>{{ vuln.CveID }}</h2> 
+           <p class = "createdAt">Created At: {{ vuln.CreatedAt }}</p>
+        </div>
         <div class="card-body">
           <h5 class="card-title"> Vulberability ID: {{ vuln.VulnID }}</h5>
           <!-- Inside Card Body -->
           <p class="card-text">Created At: {{ vuln.CreatedAt }}</p>
+          <p class="card-text">Vulnerability Version ID: {{ vuln.VulnVersionID }}</p>
           <p class="card-text">{{ vuln.Summary }}</p>
           <a href="#" class="btn btn-primary">Learn More</a>
           <!-- End Card Body -->
