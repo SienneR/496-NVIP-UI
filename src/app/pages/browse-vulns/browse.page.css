@@ -124,6 +124,7 @@
     .btn{
         max-width: 10em; 
         margin-top: auto;
+        --cui-btn-bg: #283c54; 
     }
 
     /* Make container borders smaller */
