@@ -49,7 +49,7 @@ export class BrowsePage {
   currentPage: number = 1;
 
   // Items per page
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 5;
 
   //Number of vulnerabilties 
   numberOfEntries: number; 

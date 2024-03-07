@@ -80,23 +80,15 @@
 <!-- End header -->
 
 
-<!-- Begin Results Table -->
-<div class = "container">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Vuln ID</th>
-      <th scope="col">Summary</th>
-      <th scope="col">Severity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let vuln of getItemsForCurrentPage(); let i = index">
-      <td class = "blue-underline-text">{{ vuln.CveID }}</td>
-      <td>{{ vuln.Summary }}</td>
-      <td>{{ vuln.Severity }}</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-<!-- End Results Table -->
+<!-- Begin Results Cards -->
+<div class = container> 
+<div class="card" *ngFor="let vuln of getItemsForCurrentPage(); let i = index">
+    <h5 class="card-header">{{ vuln.CveID }}</h5>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">{{ vuln.Summary }}</p>
+      <a href="#" class="btn btn-primary">Learn More</a>
+    </div>
+  </div>
+  </div>
+<!-- End Results Cards -->
