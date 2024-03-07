@@ -81,14 +81,16 @@
 
 
 <!-- Begin Results Cards -->
-<div class = container> 
-<div class="card" *ngFor="let vuln of getItemsForCurrentPage(); let i = index">
-    <h5 class="card-header">{{ vuln.CveID }}</h5>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">{{ vuln.Summary }}</p>
-      <a href="#" class="btn btn-primary">Learn More</a>
+<div class="container"> 
+    <div *ngFor="let vuln of getItemsForCurrentPage(); let i = index" class="card-container">
+      <div class="card">
+        <h5 class="card-header">{{ vuln.CveID }}</h5>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">{{ vuln.Summary }}</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
     </div>
-  </div>
   </div>
 <!-- End Results Cards -->

@@ -86,21 +86,19 @@
     }
     
     
-    /* for CVE ID column to indicate it is a link*/
-    .blue-underline-text{
-      color: blue; 
-      --cui-table-striped-color: blue; 
+    /* Controls for the Card */
+    .card{
+       width: 70rem; 
+       height: 20rem; 
+
     }
-    
-    .blue-underline-text:hover{
-      text-decoration: underline;
+    .card-container{
+        margin-bottom: 3rem; 
+        display: flex; 
+        justify-content: center; 
+
     }
-    
-    /* For table */
-    table{
-      font-size:18px;
-    }
-    
+
     /* Make container borders smaller */
     .container{
       max-width: 1550px;
