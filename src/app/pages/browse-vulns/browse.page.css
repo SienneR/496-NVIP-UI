@@ -1,0 +1,113 @@
+/**
+ * Copyright 2023 Rochester Institute of Technology (RIT). Developed with
+ * government support under contract 70RCSA22C00000008 awarded by the United
+ * States Department of Homeland Security for Cybersecurity and Infrastructure Security Agency.
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+/** Daily CVE Page Styles **/
+
+
+/* Style for top section with NVIP pic and title */
+.style-at-top{
+    height:auto; 
+    background-color: #283c54;
+    color: white; 
+    display: flex; 
+    flex-direction: row; 
+    align-items: flex-end; 
+    }
+    
+    .bottom-text{
+    margin-left: 2rem; 
+    margin-bottom: 1rem; 
+    }
+    
+    .img-col{
+    text-align: right; 
+    align-items: inherit; 
+    }
+    
+    img{
+      width: 650px; 
+      height: auto; 
+    }
+    /* End style for top row */
+    
+    
+    h1{
+      font-size:40px;
+      margin-top: 2rem; 
+    }
+    
+    .col{
+      display: flex; 
+      flex-direction: column; 
+    }
+    
+    .for-spacing{
+      padding: 1em; 
+    }
+    
+    .center-this{
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+    }
+    
+    .pagination-col{
+      display: flex; 
+      padding-top: 7em;
+      align-items: flex-end;
+    }
+    
+    /* Control size of pagination bar via text in pagination */
+    .pagination{
+      --cui-pagination-font-size: 1.4rem;
+      --cui-pagination-active-bg: #283c54; 
+      --cui-pagination-active-border-color: #283c54; 
+    }
+    
+    
+    /* for CVE ID column to indicate it is a link*/
+    .blue-underline-text{
+      color: blue; 
+      --cui-table-striped-color: blue; 
+    }
+    
+    .blue-underline-text:hover{
+      text-decoration: underline;
+    }
+    
+    /* For table */
+    table{
+      font-size:18px;
+    }
+    
+    /* Make container borders smaller */
+    .container{
+      max-width: 1550px;
+    }
+    
+    
+    
+    
+    
+    

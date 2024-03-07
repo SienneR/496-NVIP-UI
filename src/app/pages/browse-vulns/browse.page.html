@@ -1,0 +1,102 @@
+<!--
+  Copyright 2021 Rochester Institute of Technology (RIT). Developed with
+  government support under contract 70RCSA22C00000008 awarded by the United
+  States Department of Homeland Security for Cybersecurity and Infrastructure Security Agency.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the “Software”), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+-->
+
+<!-- Theme Stuff -->
+<div class = "row style-at-top">
+    <div class = "col bottom-text">
+  <h1> National Vulnerability Intelligence Platform </h1>
+    </div>
+    <!-- for photo -->
+    <div class = "col img-col">
+      <img src="assets/images/nvip-simple-logo.jpg" alt="NVIP" />
+    </div>
+  </div>
+
+<!-- Header -->
+<div class = "container">
+  <!-- Row 1 -->
+  <div class = "row">
+    <h1> Browse Vulnerabilities </h1>
+  </div>
+
+  <!-- for spacing -->
+  <div class = "row for-spacing"> 
+    <h2> </h2>
+  </div>
+
+  <!-- Row 3 -->
+  <div class = "row">
+    <div class = "col">
+    <h2> Descriptions</h2>
+    <p>Vulnerability ID: this attribute desribes the index of the vulnerability found <p>
+    <p>Summary: this attribute shows a brief description of the vulerability<p>
+    <p>Severity: this attribute describes the severity of the vulnerability, from 'Low' to 'High'<p>
+    </div>
+    <div class = "col center-this">
+     <h2> {{testData.length}} vulnerabilities found </h2>
+     <h2> Showing results {{getStartIndex()+1}} through {{getEndIndex()}}</h2>
+    </div>
+    <!-- Pagination -->
+    <div class = "col pagination-col">
+      <nav aria-label="...">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a>
+          </li>
+          <!-- Iterate over page numbers -->
+          <li class="page-item" *ngFor="let pageNumber of totalPagesArray()">
+            <a class="page-link" (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- End of Pagination -->
+    </div>
+  </div>
+</div>
+<!-- End header -->
+
+
+<!-- Begin Results Table -->
+<div class = "container">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Vuln ID</th>
+      <th scope="col">Summary</th>
+      <th scope="col">Severity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vuln of getItemsForCurrentPage(); let i = index">
+      <td class = "blue-underline-text">{{ vuln.CveID }}</td>
+      <td>{{ vuln.Summary }}</td>
+      <td>{{ vuln.Severity }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- End Results Table -->
