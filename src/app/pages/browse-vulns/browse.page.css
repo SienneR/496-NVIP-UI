@@ -96,6 +96,8 @@
     .card{
        width: 70rem; 
        height: auto; 
+       max-height: 50rem; 
+       text-overflow: ellipsis; 
        display: flex; 
        flex-direction: column; 
        justify-content: center; 
