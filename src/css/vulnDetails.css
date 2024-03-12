@@ -86,13 +86,15 @@ table.table-striped.detail-table > tbody > tr > td {
 
 .vuln-tab-bar {
   	overflow: hidden;
-  	background-color: #FFFFFF;
+	background-color: #ffffff;
+	border: 2px solid #d3d3d3;
+	border-top: 0px;
 }
 
 /* Style the buttons that are used to open the tab content */
 .vuln-tab-bar button {
   background-color: #f0f0f0;
-  border-width: 2px 2px 0px 0px;
+  border-width: 2px 0px 0px 0px;
   border-style: solid;
   border-color: #d3d3d3;
   cursor: pointer;
@@ -103,7 +105,8 @@ table.table-striped.detail-table > tbody > tr > td {
 }
 
 .vuln-tab-bar button:first-child {
-	background-color: inherit;
+	background-color: #21618C;
+	color: #FFFFFF;
 	border-bottom-width: 0px;
 }
 
@@ -115,10 +118,9 @@ table.table-striped.detail-table > tbody > tr > td {
 	width: auto;
 }
 
-
 /* Change background color of buttons on hover */
 .vuln-tab-bar button:hover {
-  background-color: #ddd;
+	background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
@@ -135,8 +137,10 @@ table.table-striped.detail-table > tbody > tr > td {
 }
 
 .vuln-panel {
-	border-top: 2px solid #d3d3d3;
-	padding: 0em 1em 3em 1em;
+	width: 100%;
+	background-color: #ffffff;
+	border: 2px solid #d3d3d3;
+	padding: 0em 1em 0em 1em;
 }
 
 .vuln-panel > .vuln-tab {
