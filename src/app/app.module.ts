@@ -33,6 +33,7 @@ import { MainComponent } from './pages/main/main.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { RecentComponent } from './pages/recent/recent.component';
+import { BrowsePage } from './pages/browse-vulns/browse.page';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
 import { DailyComponent } from './pages/daily/daily.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
@@ -85,6 +86,7 @@ library.add(fas);
     MainComponent,
     AboutComponent,
     ReviewComponent,
+    BrowsePage, 
     RecentComponent,
     CreateAccountComponent,
     DailyComponent,

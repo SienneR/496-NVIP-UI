@@ -28,7 +28,7 @@ import { CreateAccountComponent } from './pages/create-account/create-account.co
 import { DailyComponent } from './pages/daily/daily.component';
 import { MainComponent } from './pages/main/main.component';
 import { PrivacyComponent } from './pages/privacy/privacy.component';
-import { RecentComponent } from './pages/recent/recent.component';
+import { BrowsePage } from './pages/browse-vulns/browse.page'; 
 import { ReviewComponent } from './pages/review/review.component';
 import { SearchComponent } from './pages/search/search.component';
 import { VulnerabilityComponent } from './pages/vulnerability/vulnerability.component';
@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'about', component: AboutComponent },
   { path: 'review/:id', component: ReviewComponent, canActivate: [() => inject(AuthService).canActivate()] },
-  { path: 'recent', component: RecentComponent, canActivate: [() => inject(AuthService).canActivate()] },
+  { path: 'browse', component: BrowsePage, canActivate: [() => inject(AuthService).canActivate()] },
   { path: 'daily', component: DailyComponent, canActivate: [() => inject(AuthService).canActivate()] },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'search', component: SearchComponent, canActivate: [() => inject(AuthService).canActivate()] },
