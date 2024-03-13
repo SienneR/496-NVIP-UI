@@ -31,19 +31,18 @@
       <button [cNavbarToggler]="collapseRef"></button>
     </div>
     <div class="nvip-header-container">
-      <div #collapseRef="cCollapse" navbar cCollapse
-      id="userView"
-      class="nvip-header-links"
-      style="display: flex; width: 100%"
-      >
+      <div #collapseRef="cCollapse" navbar cCollapse id="userView" class="nvip-header-links"
+        style="display: flex; width: 100%">
         <!-- <div id="userView"> -->
         <c-navbar-nav class="me-auto mb-2 mb-lg-0" style="width: 100%">
           <c-nav-item class="nvip-header-link" routerLink="about">
             <a cNavLink>About NVIP</a>
           </c-nav-item>
+          <!--
           <c-nav-item class="nvip-header-link" routerLink="daily">
             <a cNavLink>Home</a>
           </c-nav-item>
+          -->
           <c-nav-item class="nvip-header-link" (click)="goTo(['browse'])">
             <a cNavLink>Browse Vulnerabilities</a>
           </c-nav-item>
@@ -54,16 +53,10 @@
             <a>Login</a>
           </c-nav-item>
 
-        <!-- Logout Icon -->
-        <c-nav-item class="nvip-header-user-icon-container">
-            <fa-icon
-              [icon]="faSignOut"
-              class="nvip-header-user-icon"
-              [hidden]="!isLoggedIn()"
-              aria-hidden="true"
-              (click)="logOut()"
-              href="#"
-            ></fa-icon>
+          <!-- Logout Icon -->
+          <c-nav-item class="nvip-header-user-icon-container">
+            <fa-icon [icon]="faSignOut" class="nvip-header-user-icon" [hidden]="!isLoggedIn()" aria-hidden="true"
+              (click)="logOut()" href="#"></fa-icon>
           </c-nav-item>
         </c-navbar-nav>
         <!-- </div> -->
