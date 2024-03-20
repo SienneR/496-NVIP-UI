@@ -5,9 +5,9 @@ declare var $: any;
   templateUrl: './page-header.component.html',
 })
 export class PageHeaderComponent implements OnInit {
-  @Input() leftTitle: string = "Vulnerabilities";
+  @Input() leftTitle: string = "Viewing All Vulnerabilities";
   @Input() rightTitle:string="";
-  @Input() icon: string = "fa-list";
+  @Input() icon: string ;
   constructor(private cdr: ChangeDetectorRef) {
 
   }
