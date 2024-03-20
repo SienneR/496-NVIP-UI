@@ -1,0 +1,66 @@
+<div class="wrapper ">
+    <div class="sidebar left-sidebar  border-end border-1 border-start-0">
+        <button class="btn close-sidebar-button">
+            <i class="fa fa-times hover-danger text-dark"></i>
+        </button>
+        <ul class="list-unstyled mb-0">
+        </ul>
+    </div>
+    
+    <div class="contents">
+        <div class="container">
+            <app-page-header></app-page-header>
+            <app-spinner *ngIf="isLoading"></app-spinner>
+            <div class="text-center mt-5" *ngIf="!isLoading">
+                <pagination-controls 
+                    (pageChange)="pageChanged($event)"
+                    (pageChange)="this.utilService.paginationObject.currentPage= $event"  
+                    [maxSize]="8"
+                    [responsive]="true"
+                    [autoHide]="true"
+                    class="custom-pagination">
+                </pagination-controls>
+            </div>
+            <div  *ngIf="!isLoading" class="content-container my-7 mx-md-4">
+                
+                <div class="card" *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}">
+                    <div class="card-header">
+                        <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
+                        <div class="type">
+                           <i class="fa fa-calendar-alt pr-1"></i> {{item.createdDate| date: 'MM/dd/y, h:mm a'}}
+                        </div>
+           
+                        <div class="tool">
+                            <button  class="btn btn-print" (click)="this.router.navigate(['/cve/'+item.cveId])" title="cve details">
+                                <i class="fa fa-info-circle fa-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row px-0">
+                            <div class="col-md-12">
+                               <pre class="overflow-hidden">{{item.description}}</pre>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+
+            <div class="text-center mb-6" *ngIf="!isLoading">
+                <pagination-controls 
+                    (pageChange)="pageChanged($event)"
+                    (pageChange)="this.utilService.paginationObject.currentPage= $event"  
+                    [maxSize]="8"
+                    [responsive]="true"
+                    [autoHide]="true"
+                    class="custom-pagination">
+                </pagination-controls>
+            </div>
+        </div>
+
+    </div>
+    <div class="sidebar right-sidebar  border-start border-1 border-end-0">
+
+    </div>
+</div>
