@@ -6,6 +6,7 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
         border: 0px transparent;
         max-width: 700px !important;
         margin-bottom: 50px;
+        margin-left: 70px; 
         .card-header {
             font-size: 18px;
             height: $header-height !important;
@@ -21,16 +22,16 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
                 color: $secondary;;
                 height: $header-height !important;
                 line-height: $header-height !important;
-                background-color: $card-bg-color;
+                background-color: #dfe5f0;
                 min-width: 200px;
-                border-top: 2px solid $card-border-color;
-                border-left: 2px solid $card-border-color;
+                border-top: 2px solid #dfe5f0;
+                border-left: 2px solid #dfe5f0;
                 padding-left: 10px;
                 padding-right: 20px;
                 border-radius: 3px 0px 0px 0px;
                 
                 .fa{
-                    color: $secondary;
+                    color: #9eb4db !important;;
                     padding-right: 10px;
                 }
                     
@@ -47,11 +48,12 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
                 margin-top: 2px !important;
 
                 color:$secondary;
-                border: 2px solid $card-border-color;
+                border: 1px solid #dfe5f0;
                 height: 34px !important;
                 line-height: 34px;
                 padding: 0px 10px;
-                border-radius: 20px;
+                border-radius: 10px;
+                background-color: #dfe5f0;
             
                 //background-image: linear-gradient($card-bg-color, darken($light, 2%));
 
@@ -59,15 +61,15 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
             h4::after {
                 position: absolute;
                 content: '';
-                background-color: $card-bg-color;
+                background-color: #dfe5f0;
                 right: -20px;
                 border-radius:0px 0px 0px -0px;
                 top: -2px;
                 height: $header-height+0.5px;
                 width: 40px;
                 border:0;
-                border-top: 2px solid $card-border-color;
-                border-right: 2px solid darken($card-border-color,1%);
+                border-top: 2px solid #dfe5f0;
+                border-right: 2px solid darken(#dfe5f0,1%);
                 z-index: 0;
                 transform: skew(42deg);
             }
@@ -89,7 +91,7 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
                 padding-right: 10px;
 
                 i{
-                    color:$gray;
+                    color:#9eb4db;
                     font-size:20px;
                     &:hover{
                         color:seagreen;
@@ -108,8 +110,8 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
         }
         .card-body,.card-block {
             padding: 20px 30px;
-            border: 2px solid $card-border-color;
-            background-image: linear-gradient($card-bg-color, darken($light, 2%));
+            border: 2px solid #dfe5f0;
+            background-image: linear-gradient(#dfe5f0, darken($light, 2%));
    
             p{
                 font-family: $font-family;
@@ -122,7 +124,7 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
         .card-footer{
             
             height: $header-height;
-            border:2px solid $card-border-color;
+            border:2px solid #dfe5f0;
             border-top: 0px;
             background: transparent;
           

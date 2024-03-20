@@ -65,19 +65,20 @@ $bg-header: darken($light, 2%);
 }
 
 .page-header-info {
-    margin: 1px 20px !important;
+    margin: 0px 1px !important;
     padding: 0px 0px;
     line-height: 40px !important;
     min-height: 40px !important;
     //background: linear-gradient($card-bg-color, darken($light, 6%));
-    background: $bg-header;
+    background: darken($bg-header, 15%);
     border: 1px darken($card-border-color, 5%) solid;
     //border-radius: 2px 25px 2px 25px ;
-    border-radius:25px;
+    border-radius:5px;
     .info-contents{
         width: 100% !important;
-        margin: 0px 10px;
+        margin: 0px 0px;
     }
+    background-color: #dfe5f0;
 
     h4 {
         line-height: 40px !important;
