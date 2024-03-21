@@ -18,7 +18,6 @@ $title-light: #74e035;
 
 .sidebar{
     min-width: 292px;
-    max-width: 292px;
 
     background: $layout-bg-color;
     border-left: 2px solid lighten(black,60%);
@@ -71,7 +70,7 @@ $title-light: #74e035;
     }
 }
 .left-sidebar{
-    width: 292px !important;
+    width: 800px;
     &.active {
         margin-left: -300px;
         width: 0px !important;
