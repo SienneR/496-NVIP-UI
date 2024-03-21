@@ -4,16 +4,14 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
 .content-container{
     .card {
         border: 0px transparent;
-        max-width: 700px !important;
+        width: 650px !important;
         margin-bottom: 50px;
-        margin-left: 70px; 
+        margin-left: 18em; 
         .card-header {
-            font-size: 18px;
             height: $header-height !important;
             line-height: 44px !important;
             background: white;
             padding: 0px !important;
-            border: 0px;
             display: flex;
             justify-content: space-between;
             h4 {
@@ -41,37 +39,9 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
                 
 
             }
-
-            .type{
-
-                font-size: 16px;
-                margin-top: 2px !important;
-
-                color:$secondary;
-                border: 1px solid #dfe5f0;
-                height: 34px !important;
-                line-height: 34px;
-                padding: 0px 10px;
-                border-radius: 10px;
-                background-color: #dfe5f0;
-            
-                //background-image: linear-gradient($card-bg-color, darken($light, 2%));
-
-            }
             h4::after {
-                position: absolute;
                 content: '';
                 background-color: #dfe5f0;
-                right: -20px;
-                border-radius:0px 0px 0px -0px;
-                top: -2px;
-                height: $header-height+0.5px;
-                width: 40px;
-                border:0;
-                border-top: 2px solid #dfe5f0;
-                border-right: 2px solid darken(#dfe5f0,1%);
-                z-index: 0;
-                transform: skew(42deg);
             }
             .btn-close{
                 margin-top: 7px;
@@ -109,15 +79,18 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
             
         }
         .card-body,.card-block {
-            padding: 20px 30px;
+            padding: 30px 30px;
             border: 2px solid #dfe5f0;
             background-image: linear-gradient(#dfe5f0, darken($light, 2%));
+            border-bottom: 0px; 
+            height: fit-content;
    
             p{
                 font-family: $font-family;
-                text-align: justify;
                 font-size: 15px;
                 color: $secondary;
+                text-align: justify;
+                margin-top: auto; 
             }
         }
 
@@ -125,12 +98,18 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
             
             height: $header-height;
             border:2px solid #dfe5f0;
-            border-top: 0px;
+            border-top: 0px !important;
             background: transparent;
+            display:flex;
+            justify-content: right;
           
             .info-label{
                 font-size: 14px;
                 //font-family: $font-family;
+            }
+
+            .type{
+                color:$secondary;
             }
         }
     
