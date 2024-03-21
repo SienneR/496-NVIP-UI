@@ -4,9 +4,10 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
 .content-container{
     .card {
         border: 0px transparent;
-        max-width: 650px !important;
+        width: 650px !important;
         margin-bottom: 50px;
-        margin-left: 9em; 
+        margin-left: 8em; 
+        margin-right: 8em; 
         .card-header {
             height: $header-height !important;
             line-height: 44px !important;
