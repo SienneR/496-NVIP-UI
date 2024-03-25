@@ -24,11 +24,11 @@ $title-light: #74e035;
     transition: all 0.5s cubic-bezier(0.945, 0.02, 0.27, 0.665);
     transform-origin: bottom right;
     ul{
-        
+
         li{
             color:$dark;
-            line-height: 40px;
-            border-bottom: 1px solid black;
+            line-height: 85px;
+            /*border-bottom: 1px solid black;*/
             font-size: 16px;
             font-weight: 500;
             transition: all 0.2s ease;
@@ -40,7 +40,7 @@ $title-light: #74e035;
                 display: block;
                 transition: all 0.2s ease;
                 cursor: pointer;
-                font-size: 17px;
+                font-size: 20px;
 
                 &:hover{
                     padding-right: 20px;
@@ -51,7 +51,7 @@ $title-light: #74e035;
                 }
             }
             &:last-child{
-                border-bottom: 1px solid black;
+                /*border-bottom: 1px solid black;*/
             }
         }
 

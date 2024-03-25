@@ -3,6 +3,7 @@ $header-height:40px;
 $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
 .content-container{
     .card {
+        box-shadow: 2px 2px 3px 4px rgba(20,20,20,0.4);
         border: 0px transparent;
         width: 650px !important;
         margin-bottom: 50px;
@@ -19,14 +20,10 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
                 position: relative;
                 color: $secondary;;
                 height: $header-height !important;
-                line-height: $header-height !important;
-                background-color: #dfe5f0;
+                line-height: $header-height !important;              
                 min-width: 200px;
-                border-top: 2px solid #dfe5f0;
-                border-left: 2px solid #dfe5f0;
                 padding-left: 10px;
                 padding-right: 20px;
-                border-radius: 3px 0px 0px 0px;
                 
                 .fa{
                     color: #9eb4db !important;;
@@ -80,8 +77,8 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
         }
         .card-body,.card-block {
             padding: 30px 30px;
-            border: 2px solid #dfe5f0;
-            background-image: linear-gradient(#dfe5f0, darken($light, 2%));
+            background-color: #dfe5f0;
+            background-image: linear-gradient(white,#dfe5f0);
             border-bottom: 0px; 
             height: fit-content;
    
@@ -155,7 +152,6 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
         border: 2px solid $card-border-color !important;
         border-bottom: 0px !important;
         height: 50px !important;
-        border-radius: 20px 20px 0px 0px !important;
         h4{
             border:0 !important;
             background: transparent !important;
