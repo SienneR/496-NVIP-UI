@@ -1,9 +1,9 @@
 table{
     tr{
-    
-        padding: 2px 2px !important;
+        padding: 255px 255px !important;
         td{
-            padding: 2px 5px !important;
+            background-color: white;
+            padding: 2px 8px !important;
             i{
                 cursor: pointer;
             }
@@ -11,11 +11,11 @@ table{
         th{
             padding: 0px 0px !important;
             text-align: left !important;
+            background-color:transparent;
             //color:$secondary !important;
-            background: $card-bg-color !important;
+            //background: $card-bg-color !important;
             font-size: 15px;
             font-weight: normal;
-           
         }
     }
 }
