@@ -15,6 +15,11 @@ $title-light: #74e035;
     overflow-x: hidden; /* Add this line */
 }
 
+.quick-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+}
+
 
 .sidebar{
     min-width: 292px;
@@ -79,7 +84,9 @@ $title-light: #74e035;
 }
 
 .contents{
-    width: 100%;
+    width: auto;
+    margin-left: 200px;
+    margin-right: 200px;
     min-height: 74vh;
     transition: all 0.1s;
     flex-grow: 1;
