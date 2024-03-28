@@ -27,15 +27,18 @@
     -->
     <div class="row">
     <div class="col-lg-9 col-md-7 col-sm-12">
-        
+        <div style="margin: 50px;">
+            <button style="background-color: #f8f9fa;" class="border">Back</button>
+        </div>
         <app-cve-description [cveId]="cveId" [tab]="utilService.tabs[0]"></app-cve-description>
-        <app-cve-sources [cveId]="cveId" [tab]="utilService.tabs[1]"></app-cve-sources>
-        <app-cve-affected-products [cveId]="cveId" [tab]="utilService.tabs[2]"></app-cve-affected-products>
+        <app-cve-exploits [cveId]="cveId" [tab]="utilService.tabs[7]"></app-cve-exploits>
         <app-cve-vdo-labels [cveId]="cveId" [tab]="utilService.tabs[3]"></app-cve-vdo-labels>
+        <app-cve-affected-products [cveId]="cveId" [tab]="utilService.tabs[2]"></app-cve-affected-products>
+        <app-cve-sources [cveId]="cveId" [tab]="utilService.tabs[1]"></app-cve-sources>
         <app-cve-ssvc [cveId]="cveId" [tab]="utilService.tabs[4]"></app-cve-ssvc>
         <app-cve-patches [cveId]="cveId" [tab]="utilService.tabs[5]"></app-cve-patches>
         <app-cve-fixes [cveId]="cveId" [tab]="utilService.tabs[6]"></app-cve-fixes>
-        <app-cve-exploits [cveId]="cveId" [tab]="utilService.tabs[7]"></app-cve-exploits>
+        
     </div>
     <div class="col-lg-3 col-md-5 col-sm-12">  
         <app-cve-details [cveId]="this.cveId"></app-cve-details>
