@@ -68,13 +68,11 @@ $title-light: #74e035;
 }
 .right-sidebar-main{
     position: relative; 
-    top: 250px; 
-    height: 450px; 
     width: 292px !important;
     .content {
-        position: fixed; 
+        position: sticky; 
         padding-left: 60px; 
-        padding-top: 25px; 
+        padding-top: 250px; 
         line-height: 40px; 
         height: 500px; 
     }
