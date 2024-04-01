@@ -59,7 +59,6 @@ $title-light: #74e035;
 }
 .right-sidebar{
     width: 292px !important;
-    position: relative; 
     &.active {
         margin-right: -292px;
         width: 0px !important;
@@ -68,6 +67,12 @@ $title-light: #74e035;
     .close-sidebar-button{
         display: none;
     }  
+
+    .content {
+        position: fixed; 
+        padding: 20px; 
+        top: 30px; 
+    }
 }
 .left-sidebar{
     &.active {
@@ -147,10 +152,8 @@ $title-light: #74e035;
 }
 
 .sidebar-tree-menue{
-    position: relative;
     .dropdown-toggle::after {
         display: block;
-        position: absolute;
         font-size: 22px;
         top: 50%;
         right: 10px;
@@ -158,7 +161,6 @@ $title-light: #74e035;
         color:$secondary;
     }
     ul {
-        position: relative;
         li { 
             box-sizing: border-box;
             transition: all 0.2s ease;
@@ -181,14 +183,9 @@ $title-light: #74e035;
             }
             border-bottom: 0px !important;
 
-            ul {
-                position: static;
-                
+            ul {        
     
-                li {
-                    line-height: 34px;
-                    position: relative;
-    
+                li {    
                     font-size: 17px;
                     padding-right: 40px;
                     cursor: pointer;
@@ -206,18 +203,16 @@ $title-light: #74e035;
                     .drag-handle {
                         cursor: move;
                         width: 30px;
-                        height: 30px;
+                        height: 0px;
                         color: $lighten-standard-fontcolor;
                         :hover {
                             color: green !important;
                         }
                     }
                     .checked-item{
-            
                         font-size: 23px !important;
                         color:seagreen;
                         padding-left: 10px;
-                        margin-top: 5px;
                         border-radius: 0px !important;
                     }
                 }
