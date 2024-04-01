@@ -56,25 +56,31 @@ $title-light: #74e035;
     }
 }
 .right-sidebar{
+    position: relative; 
     width: 292px !important;
     &.active {
         margin-right: -292px;
         width: 0px !important;
     }
-
     .close-sidebar-button{
         display: none;
     }  
-
+}
+.right-sidebar-main{
+    position: relative; 
+    top: 250px; 
+    height: 450px; 
+    width: 292px !important;
     .content {
-        position: relative; 
-        top: 40px; 
-        padding: 10px;
+        position: fixed; 
         padding-left: 60px; 
-        line-height: 60px;
-        border: 1px;
+        padding-top: 25px; 
+        line-height: 40px; 
+        height: 500px; 
     }
 }
+
+
 .left-sidebar{
     line-height: 85px;
     &.active {
@@ -170,7 +176,7 @@ $title-light: #74e035;
 
             a {
                 padding-right: 40px;
-                position: relative;
+               // position: relative;
                 text-decoration: none;
                 font-size: 16px;
                 font-weight: 500;
