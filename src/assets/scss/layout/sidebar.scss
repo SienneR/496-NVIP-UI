@@ -59,6 +59,7 @@ $title-light: #74e035;
 }
 .right-sidebar{
     width: 292px !important;
+    position: relative; 
     &.active {
         margin-right: -292px;
         width: 0px !important;
@@ -66,7 +67,7 @@ $title-light: #74e035;
 
     .close-sidebar-button{
         display: none;
-    }
+    }  
 }
 .left-sidebar{
     &.active {
