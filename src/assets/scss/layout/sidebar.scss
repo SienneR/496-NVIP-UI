@@ -27,13 +27,11 @@ $title-light: #74e035;
 
         li{
             color:$dark;
-            line-height: 85px;
             /*border-bottom: 1px solid black;*/
             font-size: 16px;
             font-weight: 500;
             transition: all 0.2s ease;
             a{
-                position: relative;
                 width:100%;
                 text-decoration: none;
                 padding-left: 20px;
@@ -58,17 +56,33 @@ $title-light: #74e035;
     }
 }
 .right-sidebar{
+    position: relative; 
     width: 292px !important;
     &.active {
         margin-right: -292px;
         width: 0px !important;
     }
-
     .close-sidebar-button{
         display: none;
+    }  
+}
+.right-sidebar-main{
+    position: relative; 
+    top: 250px; 
+    height: 450px; 
+    width: 292px !important;
+    .content {
+        position: fixed; 
+        padding-left: 60px; 
+        padding-top: 25px; 
+        line-height: 40px; 
+        height: 500px; 
     }
 }
+
+
 .left-sidebar{
+    line-height: 85px;
     &.active {
         margin-left: -300px;
         width: 0px !important;
@@ -146,10 +160,8 @@ $title-light: #74e035;
 }
 
 .sidebar-tree-menue{
-    position: relative;
     .dropdown-toggle::after {
         display: block;
-        position: absolute;
         font-size: 22px;
         top: 50%;
         right: 10px;
@@ -157,7 +169,6 @@ $title-light: #74e035;
         color:$secondary;
     }
     ul {
-        position: relative;
         li { 
             box-sizing: border-box;
             transition: all 0.2s ease;
@@ -165,7 +176,7 @@ $title-light: #74e035;
 
             a {
                 padding-right: 40px;
-                position: relative;
+               // position: relative;
                 text-decoration: none;
                 font-size: 16px;
                 font-weight: 500;
@@ -180,14 +191,9 @@ $title-light: #74e035;
             }
             border-bottom: 0px !important;
 
-            ul {
-                position: static;
-                
+            ul {        
     
-                li {
-                    line-height: 34px;
-                    position: relative;
-    
+                li {    
                     font-size: 17px;
                     padding-right: 40px;
                     cursor: pointer;
@@ -205,18 +211,16 @@ $title-light: #74e035;
                     .drag-handle {
                         cursor: move;
                         width: 30px;
-                        height: 30px;
+                        height: 0px;
                         color: $lighten-standard-fontcolor;
                         :hover {
                             color: green !important;
                         }
                     }
                     .checked-item{
-            
                         font-size: 23px !important;
                         color:seagreen;
                         padding-left: 10px;
-                        margin-top: 5px;
                         border-radius: 0px !important;
                     }
                 }

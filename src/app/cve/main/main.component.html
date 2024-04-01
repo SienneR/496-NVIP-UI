@@ -23,7 +23,7 @@
             </div>
             <div  *ngIf="!isLoading" class="content-container my-7 mx-md-4">
                 
-                <div class="card" *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}">
+                <div class="card" *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}" #card>
                     <div class="card-header">
                         <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
            
@@ -62,6 +62,16 @@
                 </pagination-controls>
             </div>
         </div>
+    </div>
 
+    <div class="sidebar right-sidebar-main border-start border-1 border-end-0">
+        <ul class="list-unstyled content">
+            <!-- Right sidebar items -->
+            <li *ngFor="let item of vulnerabilits; let i = index">
+                <a (click)="scrollToCard(i)">
+                    {{item.cveId}}
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { VulnerabilitiesService } from '../../services/vulnerabilities.service';
 import { Router } from '@angular/router';
 import { CveUtilService } from '../cve-util-service';
@@ -11,10 +11,14 @@ import { CveUtilService } from '../cve-util-service';
 export class MainComponent implements OnInit {
     vulnerabilits: any[] = [];
     itemsPerPage: number = 10;
- 
+    cardRefs: ElementRef[] = [];
+
     maxSize: number = 5;
     totalItems: number = 0;
     isLoading:boolean=false;
+
+    @ViewChildren('card') cards: QueryList<ElementRef>;
+
     constructor(
         private vulnerabilityService: VulnerabilitiesService,
         public utilService:CveUtilService,
@@ -41,5 +45,10 @@ export class MainComponent implements OnInit {
             this.totalItems = response.total;
             this.isLoading=false;
         });
+    }
+
+    scrollToCard(index: number) {
+        const cardElement = this.cards.toArray()[index].nativeElement;
+        cardElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
     }
 }
