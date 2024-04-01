@@ -32,7 +32,6 @@ $title-light: #74e035;
             font-weight: 500;
             transition: all 0.2s ease;
             a{
-                position: relative;
                 width:100%;
                 text-decoration: none;
                 padding-left: 20px;
@@ -58,7 +57,6 @@ $title-light: #74e035;
 }
 .right-sidebar{
     width: 292px !important;
-    height: auto; 
     &.active {
         margin-right: -292px;
         width: 0px !important;
@@ -69,8 +67,12 @@ $title-light: #74e035;
     }  
 
     .content {
-        padding: 20px;
+        position: relative; 
+        top: 40px; 
+        padding: 10px;
+        padding-left: 60px; 
         line-height: 60px;
+        border: 1px;
     }
 }
 .left-sidebar{
