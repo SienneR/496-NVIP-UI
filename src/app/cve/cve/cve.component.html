@@ -1,3 +1,4 @@
+
 <div>
     <app-page-header [leftTitle]="cveId" [rightTitle]="selectedTab" [icon]="'fa fa-bug'"></app-page-header>
     <div class="contents">
@@ -26,23 +27,82 @@
     </div>
     -->
     <div class="row">
-    <div class="col-lg-9 col-md-7 col-sm-12">
-        <div style="margin: 50px;">
-            <button style="background-color: #f8f9fa;" class="border">Back</button>
+        <div class="col-lg-3 col-md-5 col-sm-10" style="justify-content: center; display: flex;">  
+            <div class="sidebar left-sidebar border">
+                <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled">
+                        <li
+                            *ngFor="let item of utilService.displayTabs; let i = index"
+                            [ngClass]="{ 'border-top-0': i == 0 }"
+                        >
+                            <a
+                                (click)="selectedTab = item.title"
+                                [ngClass]="{ active: selectedTab == item.title }"
+                            >
+                                <i [ngClass]="item.icon + ' pr-2'"></i> {{ item.title }}
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
         </div>
-        <app-cve-description [cveId]="cveId" [tab]="utilService.tabs[0]"></app-cve-description>
-        <app-cve-exploits [cveId]="cveId" [tab]="utilService.tabs[7]"></app-cve-exploits>
-        <app-cve-vdo-labels [cveId]="cveId" [tab]="utilService.tabs[3]"></app-cve-vdo-labels>
-        <app-cve-affected-products [cveId]="cveId" [tab]="utilService.tabs[2]"></app-cve-affected-products>
-        <app-cve-sources [cveId]="cveId" [tab]="utilService.tabs[1]"></app-cve-sources>
-        <app-cve-ssvc [cveId]="cveId" [tab]="utilService.tabs[4]"></app-cve-ssvc>
-        <app-cve-patches [cveId]="cveId" [tab]="utilService.tabs[5]"></app-cve-patches>
-        <app-cve-fixes [cveId]="cveId" [tab]="utilService.tabs[6]"></app-cve-fixes>
-        
-    </div>
-    <div class="col-lg-3 col-md-5 col-sm-12">  
-        <app-cve-details [cveId]="this.cveId"></app-cve-details>
-    </div>
+        <div class="col-lg-6 col-md-7 col-sm-10">
+            <div style="margin: 50px;">
+                <button style="background-color: #f8f9fa;" class="border">Back</button>
+            </div>
+            <div>
+                <div [ngSwitch]="selectedTab">
+                    <app-cve-description
+                    *ngSwitchCase="utilService.displayTabs[0].title"
+                    [cveId]="cveId"
+                    [tab]="utilService.tabs[0]"
+                    ></app-cve-description>
+                    <app-cve-ssvc
+                    *ngSwitchCase="utilService.displayTabs[0].title"
+                    [cveId]="cveId"
+                    [tab]="utilService.tabs[4]"
+                    ></app-cve-ssvc>
+                    <app-cve-vdo-labels
+                    *ngSwitchCase="utilService.displayTabs[0].title"
+                    [cveId]="cveId"
+                    [tab]="utilService.tabs[3]"
+                    ></app-cve-vdo-labels>
+                    <app-cve-sources
+                        *ngSwitchCase="utilService.tabs[1].title"
+                        [cveId]="cveId"
+                        [tab]="utilService.tabs[1]"
+                    ></app-cve-sources>
+                    <app-cve-affected-products
+                        *ngSwitchCase="utilService.tabs[2].title"
+                        [cveId]="cveId"
+                        [tab]="utilService.tabs[2]"
+                    ></app-cve-affected-products>
+                    <app-cve-patches
+                        *ngSwitchCase="utilService.displayTabs[3].title"
+                        [cveId]="cveId"
+                        [tab]="utilService.tabs[5]"
+                    ></app-cve-patches>
+
+                    <app-cve-fixes
+                        *ngSwitchCase="utilService.displayTabs[3].title"
+                        [cveId]="cveId"
+                        [tab]="utilService.tabs[6]"
+                    >
+                    </app-cve-fixes>
+
+                    <app-cve-exploits
+                        *ngSwitchCase="utilService.tabs[7].title"
+                        [cveId]="cveId"
+                        [tab]="utilService.tabs[7]"
+                    >
+                    </app-cve-exploits>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-lg-3 col-md-5 col-sm-10" style="padding-left: 62px;">  
+            <app-cve-details [cveId]="this.cveId"></app-cve-details>
+        </div>
 
     </div>
 
