@@ -33,7 +33,7 @@
                     <ul class="list-unstyled">
                         <li
                             *ngFor="let item of utilService.displayTabs; let i = index"
-                            [ngClass]="{ 'border-top-0': i == 0 }"
+                            [ngClass]="{ 'border-top-0': i == 0 }" style="line-height: 99px;"
                         >
                             <a
                                 (click)="selectedTab = item.title"
@@ -48,7 +48,7 @@
         </div>
         <div class="col-lg-6 col-md-7 col-sm-10">
             <div style="margin: 50px;">
-                <button style="background-color: #f8f9fa;" class="border" (click)="this.router.navigate(['/vulnerabilities'])">
+                <button style="background-color: white;" class="border" (click)="this.router.navigate(['/vulnerabilities'])">
                     Back
                 </button>
             </div>
