@@ -1,0 +1,22 @@
+<div class="search-container">
+    <form #form="ngForm" (ngSubmit)="searchVulns($event, form)">
+        <div class="form-group">
+            <label for="cveIdInput">CVE-ID</label>
+            <input type="text" class="form-control" id="cveIdInput" [(ngModel)]="cveId" name="cveId"
+                placeholder="Enter CVE-ID" required>
+        </div>
+        <div class="nvip-form-horizontal-block">
+            <div class="nvip-form-field col-6">
+                <label for="startDate">Start Date</label>
+                <input [ngModel]="search.startDate | date:'yyyy-MM-dd'" (ngModelChange)="search.startDate = $event"
+                    type="date" class="form-control" name="startDate" />
+            </div>
+            <div class="nvip-form-field col-6">
+                <label for="endDate">End Date</label>
+                <input [ngModel]="search.endDate | date:'yyyy-MM-dd'" (ngModelChange)="search.endDate = $event"
+                    type="date" class="form-control" name="startDate" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
