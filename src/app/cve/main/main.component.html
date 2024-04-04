@@ -1,5 +1,6 @@
+<app-page-header></app-page-header>
 <div class="wrapper ">
-    <div class="sidebar left-sidebar  border-end border-1 border-start-0">
+    <div class="sidebar-main left-sidebar border-end border-1 border-start-0">
         <button class="btn close-sidebar-button">
             <i class="fa fa-times hover-danger text-dark"></i>
         </button>
@@ -10,7 +11,7 @@
 
     <div class="contents">
         <div class="container">
-            <app-page-header></app-page-header>
+
             <app-spinner *ngIf="isLoading"></app-spinner>
             <div class="text-center mt-5" *ngIf="!isLoading">
                 <pagination-controls (pageChange)="pageChanged($event)"
@@ -21,19 +22,20 @@
             <div *ngIf="!isLoading" class="content-container my-7 mx-md-4">
 
                 <div class="card"
-                    *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}">
+                    *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}"
+                    #card>
                     <div class="card-header">
                         <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
 
                         <div class="tool">
                             <button class="btn btn-print" (click)="this.router.navigate(['/cve/'+item.cveId])"
                                 title="cve details">
-                                <i class="fa fa-info-circle fa-lg"></i>
+                                <i class="fa fa-circle-question fa-lg"></i>
                             </button>
                         </div>
                     </div>
 
-                    <div class="card-body ">
+                    <div class="card-body">
                         <div class="row px-0">
                             <div class="col-md-12">
                                 <pre class="overflow-hidden">{{item.description}}</pre>
@@ -57,6 +59,16 @@
                 </pagination-controls>
             </div>
         </div>
+    </div>
 
+    <div class="sidebar right-sidebar-main border">
+        <ul class="list-unstyled content" style="margin-bottom: 0px;">
+            <!-- Right sidebar items -->
+            <li *ngFor="let item of vulnerabilits; let i = index">
+                <a (click)="scrollToCard(i)">
+                    {{item.cveId}}
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
