@@ -48,7 +48,9 @@
         </div>
         <div class="col-lg-6 col-md-7 col-sm-10">
             <div style="margin: 50px;">
-                <button style="background-color: #f8f9fa;" class="border">Back</button>
+                <button style="background-color: #f8f9fa;" class="border" (click)="this.router.navigate(['/vulnerabilities'])">
+                    Back
+                </button>
             </div>
             <div>
                 <div [ngSwitch]="selectedTab">

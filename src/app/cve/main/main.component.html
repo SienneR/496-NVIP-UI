@@ -1,6 +1,6 @@
 <app-page-header></app-page-header>
-<div class="wrapper ">
-    <div class="sidebar-main left-sidebar border-end border-1 border-start-0">
+<div class="wrapper">
+    <div class="sidebar-main left-sidebar" style="border-right: 1px solid black;">
         <button class="btn close-sidebar-button">
             <i class="fa fa-times hover-danger text-dark"></i>
         </button>
@@ -8,12 +8,12 @@
         </ul>
     </div>
     
-    <div class="contents">
+    <div class="contents" style="border-right: 1px solid black;">
         <div class="container">
-            
             <app-spinner *ngIf="isLoading"></app-spinner>
-            <div class="text-center mt-5" *ngIf="!isLoading">
-                <pagination-controls 
+            <div class="mt-5" *ngIf="!isLoading">
+                <div style="padding-left: 275px;">
+                <pagination-controls
                     (pageChange)="pageChanged($event)"
                     (pageChange)="this.utilService.paginationObject.currentPage= $event"  
                     [maxSize]="8"
@@ -21,10 +21,11 @@
                     [autoHide]="true"
                     class="custom-pagination">
                 </pagination-controls>
+                </div>
             </div>
-            <div  *ngIf="!isLoading" class="content-container my-7 mx-md-4">
+            <div  *ngIf="!isLoading" class="content-container">
                 
-                <div class="card" *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}" #card>
+                <div class="card ml-20" *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}" #card>
                     <div class="card-header">
                         <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
            
