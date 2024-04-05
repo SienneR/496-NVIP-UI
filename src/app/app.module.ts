@@ -8,6 +8,7 @@ import { TopheaderComponent } from './home/headers/topheader/topheader.component
 import { FooterComponent } from './home/headers/footer/footer.component';
 import { CveModule } from './cve/cve.module';
 import { AppInterceptorService } from './services/shared/app-interceptor.service';
+import { SharedDataService } from './cve/shared-data-service';
 
 @NgModule({
     declarations: [AppComponent, TopheaderComponent, FooterComponent],

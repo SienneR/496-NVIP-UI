@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChildren, ElementRef, QueryList } from '@angular
 import { VulnerabilitiesService } from '../../services/vulnerabilities.service';
 import { Router } from '@angular/router';
 import { CveUtilService } from '../cve-util-service';
+import { SearchComponent } from './search.component';
+import { SharedDataService } from '../shared-data-service';
 
 @Component({
     selector: 'app-main',
@@ -9,7 +11,7 @@ import { CveUtilService } from '../cve-util-service';
     styleUrl: './main.component.scss',
 })
 export class MainComponent implements OnInit {
-    vulnerabilits: any[] = [];
+    public vulnerabilits: any[] = [];
     itemsPerPage: number = 10;
     cardRefs: ElementRef[] = [];
 
@@ -22,10 +24,27 @@ export class MainComponent implements OnInit {
     constructor(
         private vulnerabilityService: VulnerabilitiesService,
         public utilService:CveUtilService,
-        public router: Router
+        public router: Router,
+        private sharedDataService: SharedDataService
     ) {}
     ngOnInit(): void {
         this.paginate(this.utilService.paginationObject.currentPage);
+    }
+
+    getSharedArray() {
+        return this.sharedDataService.sharedArray;
+    }
+
+    updateSharedArray(newArray: any[]) {
+        this.sharedDataService.updateArray(newArray);
+    }
+
+    getDidSearch() {
+        return this.sharedDataService.ifSearched();
+    }
+
+    public getVulns() {
+        return this.vulnerabilits;
     }
 
     pageChanged(event: any) {
@@ -42,6 +61,7 @@ export class MainComponent implements OnInit {
         this.totalItems=0;
         this.vulnerabilityService.findAll(options).subscribe((response) => {
             this.vulnerabilits = response.data;
+            this.updateSharedArray(this.vulnerabilits);
             this.totalItems = response.total;
             this.isLoading=false;
         });

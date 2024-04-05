@@ -4,13 +4,16 @@ import { SearchCriteria } from '../models/search-criteria.model';
 import { SearchResultService } from '../../services/search-result.service';
 import { VulnerabilitiesService } from '../../services/vulnerabilities.service';
 import { NgForm } from '@angular/forms';
+import { MainComponent } from './main.component';
+import { CveUtilService } from '../cve-util-service';
+import { SharedDataService } from '../shared-data-service';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css']
 })
-export class SearchComponent {
+export class SearchComponent{
     cveId: string = '';
     search = {} as SearchCriteria;
     searchResults: Array<any> = [];
@@ -21,16 +24,51 @@ export class SearchComponent {
     pageLimit = 10;
     totalPageLimit = 0;
 
-    constructor(
-        private vulnerabilityService: VulnerabilitiesService,
-        private searchResultService: SearchResultService,
-        private router: Router
+    results: any[] = [];
+    itemsPerPage = 10;
+    totalItems = 0;
+    isLoading:boolean=false;
+    final: any[] = [];
+    didSearch = false;
+    
+
+
+    constructor (
+        public vulnerabilityService: VulnerabilitiesService,
+        public searchResultService: SearchResultService,
+        public utilService:CveUtilService,
+        public router: Router,
+        private sharedDataService: SharedDataService
     ) { }
 
+    getDidSearch() {
+        return this.sharedDataService.ifSearched();
+    }
+
+    updateSharedArray(newArray: any[]) {
+        this.sharedDataService.updateArray(newArray);
+    }
+
+    get sharedArray() {
+        return this.sharedDataService.sharedArray;
+    }
+
+
     searchVulns($event: any, f: NgForm): void {
+        var options = {
+            limit: this.itemsPerPage
+        };
         // If only CVE-ID is provided, use findOne. Otherwise, use search.
         if (this.cveId && !this.search.startDate && !this.search.endDate) {
-            this.router.navigate(['/cve', this.cveId]);
+            //this.router.navigate(['/cve', 'CVE-' + this.cveId]);
+            this.vulnerabilityService.findAll(options).subscribe((response) => {
+                this.results = response.data;
+                this.totalItems = response.total;
+                this.isLoading=false;
+            });
+            this.final = this.results.filter(item=> item.cveId.includes(this.cveId));
+            this.updateSharedArray(this.final);
+            this.sharedDataService.updateSearch(true);
         } else {
             const searchParams = {
                 cveId: this.cveId,
