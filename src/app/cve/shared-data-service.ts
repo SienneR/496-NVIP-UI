@@ -18,4 +18,8 @@ export class SharedDataService {
   updateSearch(value: boolean ): void {
     this.didSearch = value;
   }
+
+  getArray() {
+    return this.sharedArray;
+  }
 }

@@ -49,7 +49,7 @@ export class SearchComponent{
         this.sharedDataService.updateArray(newArray);
     }
 
-    get sharedArray() {
+    getSharedArray() {
         return this.sharedDataService.sharedArray;
     }
 
