@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopheaderComponent } from './home/headers/topheader/topheader.component';
@@ -10,7 +11,7 @@ import { AppInterceptorService } from './services/shared/app-interceptor.service
 
 @NgModule({
     declarations: [AppComponent, TopheaderComponent, FooterComponent],
-    imports: [BrowserModule, AppRoutingModule, CveModule, HttpClientModule],
+    imports: [BrowserModule, AppRoutingModule, CveModule, HttpClientModule, FormsModule],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
@@ -20,4 +21,4 @@ import { AppInterceptorService } from './services/shared/app-interceptor.service
     ],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
