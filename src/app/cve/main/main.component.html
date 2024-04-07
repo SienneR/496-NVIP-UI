@@ -8,8 +8,7 @@
         <ul class="list-unstyled mb-0">
         </ul>
     </div>
-<<<<<<< HEAD
-    
+    <!--
     <div class="contents" style="border-right: 1px solid black;">
         <div class="container">
             <app-spinner *ngIf="isLoading"></app-spinner>
@@ -22,7 +21,8 @@
                     [responsive]="true"
                     [autoHide]="true"
                     class="custom-pagination">
-=======
+                    </pagination-controls>
+    -->                
 
     <div class="contents">
         <div class="container">
@@ -32,21 +32,18 @@
                 <pagination-controls (pageChange)="pageChanged($event)"
                     (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
                     [responsive]="true" [autoHide]="true" class="custom-pagination">
->>>>>>> search-sidebar
                 </pagination-controls>
                 </div>
             </div>
-<<<<<<< HEAD
             <div  *ngIf="!isLoading" class="content-container">
                 
+                <!--
                 <div class="card ml-20" *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}" #card>
-=======
+                    -->
             <div *ngIf="!isLoading" class="content-container my-7 mx-md-4">
-
-                <div class="card"
+                <div class="card ml-20"
                     *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}"
                     #card>
->>>>>>> search-sidebar
                     <div class="card-header">
                         <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
 
