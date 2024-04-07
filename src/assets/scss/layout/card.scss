@@ -7,7 +7,7 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
         border: 0px transparent;
         width: 650px !important;
         margin-bottom: 50px;
-        margin-left: 18em; 
+        /*margin-left: 18em;*/
         .card-header {
             height: $header-height !important;
             line-height: 44px !important;
@@ -77,8 +77,9 @@ $font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
         }
         .card-body,.card-block {
             padding: 30px 30px 0px 30px;
-            background-color: #dfe5f0;
-            background-image: linear-gradient(white,#dfe5f0);
+            background-color: transparent;
+            /*background-color: #dfe5f0;*/
+            /*background-image: linear-gradient(white,#dfe5f0);*/
             border-bottom: 0px; 
             height: fit-content;
             border-radius: 5px;
