@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CveRoutingModule } from './cve-routing.module';
 import { MainComponent } from './main/main.component';
+import { SearchComponent } from './main/search.component';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
 import { CveComponent } from './cve/cve.component';
 import {
@@ -20,6 +22,7 @@ import {
 @NgModule({
     declarations: [
         MainComponent,
+        SearchComponent,
         CveComponent,
         CveDetailsComponent,
         CveDescriptionComponent,
@@ -38,6 +41,7 @@ import {
         CveRoutingModule,
         SharedComponentsModule,
         NgxPaginationModule,
+        FormsModule
     ],
 })
-export class CveModule {}
+export class CveModule { }

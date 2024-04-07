@@ -4,9 +4,11 @@
         <button class="btn close-sidebar-button">
             <i class="fa fa-times hover-danger text-dark"></i>
         </button>
+        <app-search></app-search>
         <ul class="list-unstyled mb-0">
         </ul>
     </div>
+<<<<<<< HEAD
     
     <div class="contents" style="border-right: 1px solid black;">
         <div class="container">
@@ -20,17 +22,29 @@
                     [responsive]="true"
                     [autoHide]="true"
                     class="custom-pagination">
+=======
+
+    <div class="contents" *ngIf="!getDidSearch()">
+        <div class="container">
+
+            <app-spinner *ngIf="isLoading"></app-spinner>
+            <div class="text-center mt-5" *ngIf="!isLoading">
+                <pagination-controls (pageChange)="pageChanged($event)"
+                    (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
+                    [responsive]="true" [autoHide]="true" class="custom-pagination">
                 </pagination-controls>
-                </div>
             </div>
-            <div  *ngIf="!isLoading" class="content-container">
-                
-                <div class="card ml-20" *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}" #card>
+            <div *ngIf="!isLoading" class="content-container my-7 mx-md-4">
+
+                <div class="card"
+                    *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}"
+                    #card>
                     <div class="card-header">
                         <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
-           
+
                         <div class="tool">
-                            <button  class="btn btn-print" (click)="this.router.navigate(['/cve/'+item.cveId])" title="cve details">
+                            <button class="btn btn-print" (click)="this.router.navigate(['/cve/'+item.cveId])"
+                                title="cve details">
                                 <i class="fa fa-circle-question fa-lg"></i>
                             </button>
                         </div>
@@ -39,28 +53,84 @@
                     <div class="card-body">
                         <div class="row px-0">
                             <div class="col-md-12">
-                               <pre class="overflow-hidden">{{item.description}}</pre>
+                                <pre class="overflow-hidden">{{item.description}}</pre>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-footer">
                         <div class="type">
-                           <i class="fa fa-calendar-alt pr-1"></i> {{item.createdDate| date: 'MM/dd/y, h:mm a'}}
+                            <i class="fa fa-calendar-alt pr-1"></i> {{item.createdDate| date: 'MM/dd/y, h:mm a'}}
                         </div>
                     </div>
-        
+
                 </div>
             </div>
 
             <div class="text-center mb-6" *ngIf="!isLoading">
-                <pagination-controls 
-                    (pageChange)="pageChanged($event)"
-                    (pageChange)="this.utilService.paginationObject.currentPage= $event"  
-                    [maxSize]="8"
-                    [responsive]="true"
-                    [autoHide]="true"
-                    class="custom-pagination">
+                <pagination-controls (pageChange)="pageChanged($event)"
+                    (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
+                    [responsive]="true" [autoHide]="true" class="custom-pagination">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+
+    <div class="contents" *ngIf="getDidSearch()">
+        <div class="container">
+
+            <app-spinner *ngIf="isLoading"></app-spinner>
+            <div class="text-center mt-5" *ngIf="!isLoading">
+                <pagination-controls (pageChange)="pageChanged($event)"
+                    (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
+                    [responsive]="true" [autoHide]="true" class="custom-pagination">
+>>>>>>> christian-searchbar
+                </pagination-controls>
+                </div>
+            </div>
+<<<<<<< HEAD
+            <div  *ngIf="!isLoading" class="content-container">
+                
+                <div class="card ml-20" *ngFor="let item of vulnerabilits | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}" #card>
+=======
+            <div *ngIf="!isLoading" class="content-container my-7 mx-md-4">
+
+                <div class="card"
+                    *ngFor="let item of getSharedArray() | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}"
+                    #card>
+>>>>>>> christian-searchbar
+                    <div class="card-header">
+                        <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
+
+                        <div class="tool">
+                            <button class="btn btn-print" (click)="this.router.navigate(['/cve/'+item.cveId])"
+                                title="cve details">
+                                <i class="fa fa-circle-question fa-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row px-0">
+                            <div class="col-md-12">
+                                <pre class="overflow-hidden">{{item.description}}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="type">
+                            <i class="fa fa-calendar-alt pr-1"></i> {{item.createdDate| date: 'MM/dd/y, h:mm a'}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text-center mb-6" *ngIf="!isLoading">
+                <pagination-controls (pageChange)="pageChanged($event)"
+                    (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
+                    [responsive]="true" [autoHide]="true" class="custom-pagination">
                 </pagination-controls>
             </div>
         </div>
@@ -69,7 +139,7 @@
     <div class="sidebar right-sidebar-main border">
         <ul class="list-unstyled content" style="margin-bottom: 0px;">
             <!-- Right sidebar items -->
-            <li *ngFor="let item of vulnerabilits; let i = index">
+            <li *ngFor="let item of getSharedArray(); let i = index">
                 <a (click)="scrollToCard(i)">
                     {{item.cveId}}
                 </a>
