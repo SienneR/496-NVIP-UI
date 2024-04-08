@@ -69,6 +69,10 @@ export class SearchComponent{
             this.final = this.results.filter(item=> item.cveId.includes(this.cveId));
             this.updateSharedArray(this.final);
             this.sharedDataService.updateSearch(true);
+        } else if (!this.cveId && !this.search.startDate && !this.search.endDate){
+            this.updateSharedArray(this.results);
+            this.sharedDataService.updateSearch(false);
+
         } else {
             const searchParams = {
                 cveId: this.cveId,

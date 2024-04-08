@@ -12,6 +12,7 @@ import { SharedDataService } from '../shared-data-service';
 })
 export class MainComponent implements OnInit {
     public vulnerabilits: any[] = [];
+    public array2: any[] = [];
     itemsPerPage: number = 10;
     cardRefs: ElementRef[] = [];
 
@@ -57,6 +58,7 @@ export class MainComponent implements OnInit {
             limit: this.itemsPerPage,
             skip: (currentPage - 1) * this.itemsPerPage,
         };
+        
         this.isLoading=true;
         this.totalItems=0;
         this.vulnerabilityService.findAll(options).subscribe((response) => {
