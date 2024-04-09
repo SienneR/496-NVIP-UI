@@ -6,13 +6,14 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root'
 })
 export class SearchResultService {
-    private results: any[] = [];
-
-    storeResults(results: any[]): void {
-        this.results = results;
-    }
+    private results: Array<any> = [];
 
     getResults(): any[] {
         return this.results;
+    }
+
+    storeResults(results: Array<any>) {
+        this.results = results;
+        console.log("SearchResult Service: ", results);
     }
 }

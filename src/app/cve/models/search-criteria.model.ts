@@ -1,7 +1,7 @@
 /** user entered search criteria to send to API */
 export interface SearchCriteria {
     keyword: string;
-    cve_id: string;
+    cveId: string;
     limitCount: number;
     startDate: string;
     endDate: string;

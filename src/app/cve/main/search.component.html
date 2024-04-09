@@ -1,22 +1,28 @@
 <div class="search-container">
-    <form #form="ngForm" (ngSubmit)="searchVulns($event, form)">
+    <form #form="ngForm" (ngSubmit)="searchVulns(form.value)">
         <div class="form-group">
             <label for="cveIdInput">CVE-ID</label>
-            <input type="text" class="form-control" id="cveIdInput" [(ngModel)]="cveId" name="cveId"
+            <input type="text" class="form-control" id="cveIdInput" [(ngModel)]="search.cveId" name="cveId"
                 placeholder="Enter CVE-ID" required>
         </div>
         <div class="nvip-form-horizontal-block">
-            <div class="nvip-form-field col-6">
+            <div class="nvip-form-field col-md-12">
                 <label for="startDate">Start Date</label>
                 <input [ngModel]="search.startDate | date:'yyyy-MM-dd'" (ngModelChange)="search.startDate = $event"
                     type="date" class="form-control" name="startDate" />
             </div>
-            <div class="nvip-form-field col-6">
+            <div class="nvip-form-field col-md-12">
                 <label for="endDate">End Date</label>
                 <input [ngModel]="search.endDate | date:'yyyy-MM-dd'" (ngModelChange)="search.endDate = $event"
-                    type="date" class="form-control" name="startDate" />
+                    type="date" class="form-control" name="endDate" />
             </div>
         </div>
+        <!--<div *ngFor="let cvssScore of cvssScores">
+            <div class="nvip-form-field-block col-11">
+                <label for="{cvssScore}">{{cvssScore}}</label>
+                <input type="checkbox" (change)="onCVSSChange($event, cvssScore)">
+            </div>
+        </div> -->
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 </div>
