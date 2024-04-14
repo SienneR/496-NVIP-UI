@@ -1,3 +1,102 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Attribute, Attributes } from "../models/utils.model";
+import { CveUtilService } from '../cve-util-service';
+import { VulnerabilitiesService } from '../../services/vulnerabilities.service';
+
+
+
+const vdo: Attribute[] = [
+    {
+        key: 'Context',
+        values: [
+            'Application',
+            'Channel',
+            'Firmware',
+            'Guest Os',
+            'Host Os',
+            'Hypervisor',
+            'Physical Hardware',
+        ],
+    },
+    {
+        key: 'Mitigation',
+        values: [
+            'ASLR',
+            'HPKP/HSTS',
+            'Multi Factor',
+            'Authentication',
+            'Physical Security',
+            'Sandboxed',
+        ],
+    },
+    {
+        key: 'Logical Impact',
+        values: [
+            'Indirect Disclosure',
+            'Privilige Escalation',
+            'Read',
+            'Resource Removal',
+            'Service Interrupt',
+            'Write',
+        ],
+    },
+    {
+        key: 'Attack Theater',
+        values: ['Limited Rmt', 'Local', 'Physical', 'Remote'],
+    },
+    {
+        key: 'Impact Method',
+        values: [
+            'Authentication',
+            'Bypass',
+            'Code Execution',
+            'Context Escape',
+            'Man-in-the-Middle',
+            'Trust Failure',
+        ],
+    },
+];
+
+
+@Component({
+    selector: 'app-search',
+    templateUrl: './search.component.html',
+})
+export class SearchComponent implements OnInit {
+    vdo = vdo;
+    cvss: string[] = ['Low', 'Medium', 'High', 'Critical'];
+
+    @Output() onSearch: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    constructor(
+        private vulnerabilityService: VulnerabilitiesService,
+        public utilService: CveUtilService
+    ) { }
+    ngOnInit(): void { }
+
+    updateContent(event: any) {
+    }
+
+    search() {
+        this.vulnerabilityService.search({}, this.utilService.searchObject).subscribe((response) => {
+            this.utilService.vulnerabilities = response.data;
+            this.utilService.paginationObject.totalPages = response.total;
+        })
+    }
+
+    onCvssChange(event: any, item: string) {
+        var checked = event.target.checked;
+        if (checked == false) {
+            var index = this.utilService.searchObject.cvss.indexOf(item);
+            this.utilService.searchObject.cvss.splice(index, 1);
+        } else {
+            this.utilService.searchObject.cvss.push(item);
+        }
+        this.updateContent(event);
+    }
+}
+
+/**
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router, RouterConfigurationFeature } from '@angular/router';
 import { SearchCriteria } from '../models/search-criteria.model';
@@ -46,13 +145,13 @@ export class SearchComponent {
         };
         console.log(this.search);
         if (searchParams.cveId != null && searchParams.cveId != '') {
-            /**
+            
             this.vulnerabilityService.search(searchParams.cveId)
                 .subscribe(results => {
                     this.searchCompleted.emit(results);
                 })
 
-            ()*/
+            ()
 
             this.vulnerabilityService.findOne(searchParams.cveId)
                 .subscribe(results => {
@@ -69,16 +168,16 @@ export class SearchComponent {
             console.log('Start Date: ', searchParams.startDate);
             console.log('End Date: ', searchParams.endDate);
         }
-        /**this.vulnerabilityService.search(searchParams).subscribe({
+        this.vulnerabilityService.search(searchParams).subscribe({
             next: (results: any) => {
                 this.searchResultService.storeResults([results]);
                 this.handleRes([results]);
 
             },
             error: (error) => console.error('Search error:', error)
-        });**/
+        });
     }
-    /**searchVulns($event: any, f: NgForm): void {
+    searchVulns($event: any, f: NgForm): void {
         // If only CVE-ID is provided, use findOne. Otherwise, use search.
         if (this.cveId && !this.search.startDate && !this.search.endDate) {
             this.router.navigate(['/cve', this.cveId]);
@@ -95,15 +194,11 @@ export class SearchComponent {
                 error: (error) => console.error('Search error:', error)
             });
         }
-    }**/
-    /**
-    ngOnInit(): void {
-        this.vulnerabilityService
     }
-    */
-    /**searchVuln(x) {
-        console.log(x);
-    }**/
+    ngOnInit(): void {
+
+    }
+
     handleRes(res: any) {
         this.resultTotalCount = res.length;
         this.searchResults = res;
@@ -169,3 +264,4 @@ export class SearchComponent {
         this.pageBlocks = pageBlocks;
     }
 }
+**/
