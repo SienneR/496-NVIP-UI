@@ -51,7 +51,7 @@ export class Patch {
     timeToPatch: string;
     linesChanged: number;
     commitDate: Date;
-    sourceUrl: any;
+    sourceUrl:any;
 }
 
 export class TreeNode {
