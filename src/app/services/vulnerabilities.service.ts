@@ -27,35 +27,14 @@ export class VulnerabilitiesService {
         return this.http.get(url);
     }
 
-    /**
-    Attempted to implement search in a different way
-
-    search(searchParams: any): Observable<any> {
-        // The base URL for searching vulnerabilities
-        const url = `${Routes.vulnerability}`;
-
-        // Create an instance of HttpParams
-        let params = new HttpParams();
-
-        // Add search parameters to 'params'
-        Object.keys(searchParams).forEach(key => {
-            // Check if the value is not null or undefined
-            if (searchParams[key] != null) {
-                params = params.set(key, searchParams[key].toString());
-            }
-        });
-        // Make a GET request with the search parameters
-        return this.http.get(url, { params });
-    }
-    */
     search(options: any, searchData: any): Observable<any> {
         let params = new HttpParams();
-        console.log(searchData);
+        console.log("Options: ", options);
+        console.log("Search Data: ", searchData);
         Object.keys(options).forEach(key => {
             params = params.set(key, options[key]);
-            console.log();
         });
-        return this.http.post(Routes.vulnerability + searchData, {
+        return this.http.post(Routes.vulnerability + "/search", searchData, {
             params
         })
     }

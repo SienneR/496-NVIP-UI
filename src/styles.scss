@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.checkbox {
+    .box {
+        margin-right: 10px;
+    }
 
+    label {
+        padding: 5px 0;
+    }
+}
+
+.div {
+    .search-border {
+        border-bottom-color: rgb(222, 226, 230);
+        border-top-color: rgb(222, 226, 230);
+        border-bottom-width: 1px;
+        border-top-width: 1px;
+    }
+}
 
 @import './assets/scss/theme.scss';

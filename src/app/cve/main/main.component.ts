@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { VulnerabilitiesService } from '../../services/vulnerabilities.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CveUtilService } from '../cve-util-service';
 
 @Component({
@@ -22,58 +22,86 @@ export class MainComponent implements OnInit {
     constructor(
         private vulnerabilityService: VulnerabilitiesService,
         public utilService: CveUtilService,
-        public router: Router
+        public router: Router,
+        private activatedRoute: ActivatedRoute
     ) { }
+
     ngOnInit(): void {
-        this.paginate(this.utilService.paginationObject.currentPage);
-    }
+        var type = performance.getEntriesByType("navigation")[0].entryType;
+        console.log(type)
+        this.activatedRoute.queryParams.subscribe((params) => {
+            this.utilService.paginationObject.currentPage = params['page'] || 1;
+            this.queryMethod();
 
-    pageChanged(event: any) {
-        this.utilService.paginationObject.currentPage = event;
-        this.paginate(event);
-    }
-
-    paginate(currentPage: number) {
-        var options = {
-            limit: this.itemsPerPage,
-            skip: (currentPage - 1) * this.itemsPerPage,
-        };
-        this.isLoading = true;
-        this.totalItems = 0;
-        this.vulnerabilityService.findAll(options).subscribe((response) => {
-            console.log("Response Data: ", response.data)
-            this.vulnerabilities = response.data;
-            console.log(this.vulnerabilities)
-            this.totalItems = response.total;
-            this.isLoading = false;
         });
     }
 
-    handleSearchResults(searchData: any): void {
-        this.isLoading = true;
-        this.totalItems = 0;
-
-        // Check if only CVE ID is provided
-        if (searchData.cveId && !searchData.startDate && !searchData.endDate) {
-            this.vulnerabilityService.findByCveId(searchData.cveId).subscribe((response) => {
-                this.processSearchResponse([response]);
-            });
+    queryMethod() {
+        const isSearch = this.activatedRoute.snapshot.queryParams['search'] || 'false';
+        if (isSearch == 'true') {
+            this.search();
+            this.getOptions();
         } else {
-            // Use for searches with more select options
-            const options = { limit: this.itemsPerPage };
-            this.vulnerabilityService.search(options, searchData).subscribe((response) => {
-                this.processSearchResponse(response.data);
-            });
+            this.paginate();
         }
     }
 
-    private processSearchResponse(results: any[]): void {
-        this.vulnerabilities = results;
-        console.log("Main Component Vulnerabilities: ", this.vulnerabilities)
-        this.totalItems = results.length;
-        this.isLoading = false;
+    pageChanged(event: any) {
+        const isSearch = this.activatedRoute.snapshot.queryParams['search'] || false;
+        this.router.navigate(['/vulnerabilities'], {
+            queryParams: { page: event, search: isSearch },
+        });
     }
 
+    onSearch() {
+        const isSearch = this.activatedRoute.snapshot.queryParams['search'] || false;
+        const page = this.activatedRoute.snapshot.queryParams['page'];
+        console.log("Hits here.")
+        if (page == '1' && isSearch == 'true') {
+            this.queryMethod();
+
+        } else {
+            this.router.navigate(['/vulnerabilities'], {
+                queryParams: { page: 1, search: 'true' },
+            });
+        }
+
+    }
+
+    getOptions() {
+        const skip = this.utilService.paginationObject.currentPage
+            ? (this.utilService.paginationObject.currentPage -
+                1) * this.itemsPerPage
+            : 0;
+
+        var options = {
+            limit: this.itemsPerPage,
+            skip: skip
+        };
+
+        return options;
+    }
+
+    paginate() {
+        this.totalItems = 0;
+        this.vulnerabilityService
+            .findAll(this.getOptions())
+            .subscribe((response) => {
+                this.utilService.vulnerabilities = response.data;
+                console.log(this.utilService.vulnerabilities)
+                this.utilService.paginationObject.totalPages = response.total;
+            });
+    }
+
+    search() {
+        this.totalItems = 0;
+        this.vulnerabilityService
+            .search(this.getOptions(), this.utilService.searchObject)
+            .subscribe((response) => {
+                this.utilService.vulnerabilities = response.data;
+                this.utilService.paginationObject.totalPages = response.total;
+            });
+    }
 
     scrollToCard(index: number) {
         const cardElement = this.cards.toArray()[index].nativeElement;

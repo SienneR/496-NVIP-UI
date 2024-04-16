@@ -4,7 +4,7 @@
         <button class="btn close-sidebar-button">
             <i class="fa fa-times hover-danger text-dark"></i>
         </button>
-        <app-search (searchCompleted)="handleSearchResults($event)"></app-search>
+        <app-search (searchCompleted)="this.onSearch();"></app-search>
         <ul class="list-unstyled mb-0">
         </ul>
     </div>
