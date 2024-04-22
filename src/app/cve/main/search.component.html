@@ -4,13 +4,13 @@
         <div class="col-md-12 py-1 px-2">
             <h4 class=" w-100 ">
                 <a [href]="'#terms'" data-bs-toggle="collapse" aria-expanded="true">
-                    <i class="fa fa-search px-2"></i><span class="text-secondary">CVE Search</span>
+                    <i class="fa fa-search px-2"></i><span class="text-secondary"><strong>CVE Search</strong></span>
                 </a>
             </h4>
         </div>
     </div>
     <div class="collapse show" id="terms">
-        <div class="row my-2 px-3">
+        <div class="row my-2 px-4">
             <div class="col-md-12">
                 <label for="cveid" class="form-label text-secondary">CVE-ID:</label>
                 <input type="text" id="cveid" (change)="this.updateContent($event)" name="cveId"
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="row mb-3 px-3">
+        <div class="row mb-3 px-4">
             <div class="col-md-12">
                 <label for="cpe" class="form-label mb-0 text-secondary">CPE Product:</label>
                 <input type="text" id="cpe" (change)="this.updateContent($event)" name="cpe"
@@ -30,23 +30,45 @@
     </div>
 </div>
 
-<!--
-<app-date-search [date]="this.utilService.searchObject.publishedDate" (datesChange)="this.updateContent($event)">
-</app-date-search>
--->
+<div class="steps border border-radius-top-bottom border-space">
+    <div class="row header mb-0">
+        <div class="col-md-12 py-1 px-2">
+            <h4 class=" w-100 ">
+                <a [href]="'#date'" data-bs-toggle="collapse" aria-expanded="true">
+                    <i class="fa-regular fa-calendar"></i><span class="text-secondary"><strong>Date</strong></span>
+                </a>
+            </h4>
+        </div>
+        <div class="collapse show" id="date">
+            <div class="row mb-3 px-3">
+                <div class="col-md-6">
+                    <label for="fromDate" class="text-secondary">Start Date</label>
+                    <input type="date" id="fromDate" [(ngModel)]="this.utilService.searchObject.publishedDate.fromDate"
+                        (change)="onDateChange($event, 'startDate')" name="fromDate" class="form-control p-1" />
+                </div>
+                <div class=" col-md-6">
+                    <label for="toDate" class="text-secondary">End Date</label>
+                    <input type="date" [(ngModel)]="this.utilService.searchObject.publishedDate.toDate"
+                        (change)="onDateChange($event, 'toDate')" name="toDate" class="form-control p-1" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="steps border border-radius-top-bottom border-space">
-    <div class="row  header mb-0">
+    <div class="row header mb-0">
         <div class="col-md-12 py-1 px-2">
             <h4 class=" w-100 ">
                 <a [href]="'#cvss'" data-bs-toggle="collapse" aria-expanded="true">
-                    <i class="fa-solid fa-gauge-simple-high px-2"></i><span class="text-secondary">CVSS</span>
+                    <i class="fa-solid fa-gauge-simple-high px-2"></i><span
+                        class="text-secondary"><strong>CVSS</strong></span>
                 </a>
             </h4>
         </div>
     </div>
     <div class="collapse show" id="cvss">
-        <div class="checkbox ml-3 " *ngFor="let item of cvss; let i=index;">
+        <div class="checkbox ml-5 " *ngFor="let item of cvss; let i=index;">
             <input class="box" type="checkbox" name="cvss_{{i}}" (change)="onCvssChange($event,item)" value="item"
                 id="cvss_{{i}}">
             <label for="cvss_{{i}}" class="text-secondary"> {{item}}</label>
@@ -59,7 +81,7 @@
         <div class="col-md-12 py-1 px-2">
             <h4 class=" w-100 ">
                 <a [href]="'#vdo'" data-bs-toggle="collapse" aria-expanded="false">
-                    <i class="fa fa-filter px-2"></i><span class="text-secondary">VDO</span>
+                    <i class="fa fa-filter px-2"></i><span class="text-secondary"><strong>VDO</strong></span>
                 </a>
             </h4>
         </div>
@@ -74,33 +96,3 @@
 <button class="btn btn-light border border-secondary w-100 mt-3 mb-2 btn-sticky-bottom text-secondary "
     (click)="searchCompleted.emit(true);"> <i class="fa fa-search mx-2"></i> Search
 </button>
-<!--
-<div class="search-container">
-    <form #form="ngForm" (ngSubmit)="searchVulns(form.value)">
-        <div class="form-group">
-            <label for="cveIdInput">CVE-ID</label>
-            <input type="text" class="form-control" id="cveIdInput" [(ngModel)]="search.cveId" name="cveId"
-                placeholder="Enter CVE-ID" required>
-        </div>
-        <div class="nvip-form-horizontal-block">
-            <div class="nvip-form-field col-md-12">
-                <label for="startDate">Start Date</label>
-                <input [ngModel]="search.startDate | date:'yyyy-MM-dd'" (ngModelChange)="search.startDate = $event"
-                    type="date" class="form-control" name="startDate" />
-            </div>
-            <div class="nvip-form-field col-md-12">
-                <label for="endDate">End Date</label>
-                <input [ngModel]="search.endDate | date:'yyyy-MM-dd'" (ngModelChange)="search.endDate = $event"
-                    type="date" class="form-control" name="endDate" />
-            </div>
-        </div>
-        <!- -<div *ngFor="let cvssScore of cvssScores">
-            <div class="nvip-form-field-block col-11">
-                <label for="{cvssScore}">{{cvssScore}}</label>
-                <input type="checkbox" (change)="onCVSSChange($event, cvssScore)">
-            </div>
-        </div> - ->
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-</div>
--->

@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="collapse" id="key_{{i}}">
-        <div *ngFor="let value of item.values;let j=index;" class="checkbox ml-3">
+        <div *ngFor="let value of item.values;let j=index;" class="checkbox ml-5">
             <input class="box" type="checkbox" (change)="onCheckboxChange(i,$event)" [name]="item.key" [value]="value"
                 id="item.key_value_{{i}}_{{j}}">
             <label class="text-secondary" for="item.key_value_{{i}}_{{j}}">{{value}}</label>

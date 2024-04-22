@@ -10,6 +10,7 @@ export class VulnerabilitiesService {
     constructor(private http: HttpClient) { }
 
     findAll(options: any): Observable<any> {
+        console.log("Step 3: findAll function outputs vulnerabilties with these parameters.", options)
         return this.http.get(Routes.vulnerability, {
             params: options,
         });
@@ -29,8 +30,9 @@ export class VulnerabilitiesService {
 
     search(options: any, searchData: any): Observable<any> {
         let params = new HttpParams();
-        console.log("Options: ", options);
-        console.log("Search Data: ", searchData);
+        console.log("Step 4: search function receives data from the API.")
+        console.log("Vulnerability Service Options: ", options);
+        console.log("Vulnerability Service Search Data: ", searchData);
         Object.keys(options).forEach(key => {
             params = params.set(key, options[key]);
         });

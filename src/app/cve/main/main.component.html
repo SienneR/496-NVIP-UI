@@ -11,25 +11,24 @@
 
     <div class="contents">
         <div class="container">
-
-            <app-spinner *ngIf="isLoading"></app-spinner>
-            <div class="text-center mt-5" *ngIf="!isLoading">
+            <div class="mt-5 sticky-top" *ngIf="loadingService.getLoading() == true">
+                <app-spinner></app-spinner>
+            </div>
+            <div class="text-center mt-5" *ngIf="loadingService.getLoading() == false">
                 <pagination-controls (pageChange)="pageChanged($event)"
                     (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
                     [responsive]="true" [autoHide]="true" class="custom-pagination">
                 </pagination-controls>
             </div>
-            <div *ngIf="!isLoading" class="content-container my-7 mx-md-4">
-
+            <div *ngIf="loadingService.getLoading() == false" class="content-container my-7 mx-md-4">
                 <div class="card"
-                    *ngFor="let item of vulnerabilities | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}"
+                    *ngFor="let item of this.utilService.vulnerabilities | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}; let i = index;"
                     #card>
-
+                    {{ logItem(item) }}
                     <!-- Outputs the details of the vulnerabilities-->
                     <!-- <pre>{{ item | json }}</pre> -->
                     <div class="card-header">
                         <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
-
                         <div class="tool">
                             <button class="btn btn-print" (click)="this.router.navigate(['/cve/'+item.cveId])"
                                 title="cve details">
@@ -55,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="text-center mb-6" *ngIf="!isLoading">
+            <div class="text-center mb-6" *ngIf="loadingService.getLoading() == false">
                 <pagination-controls (pageChange)="pageChanged($event)"
                     (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
                     [responsive]="true" [autoHide]="true" class="custom-pagination">

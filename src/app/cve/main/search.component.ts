@@ -5,7 +5,7 @@ import { SearchResultService } from '../../services/search-result.service';
 import { VulnerabilitiesService } from '../../services/vulnerabilities.service';
 import { ApiService } from '../../services/api.service';
 import { NgForm } from '@angular/forms';
-import { Attribute, Attributes } from '../models/utils.model';
+import { Attribute, Attributes, DateRange } from '../models/utils.model';
 import { CveUtilService } from '../cve-util-service';
 
 const vdo: Attribute[] = [
@@ -69,21 +69,6 @@ export class SearchComponent {
     vdo = vdo;
     cvss: string[] = ['Low', 'Medium', "High", "Critical"]
 
-    searchResults: Array<any> = [];
-    filteredSearchResults: Array<any> = [];
-    cvssScores = [];
-    vdoNounGroups = {} as Record<string, Array<any>>;
-    vdoNounGroupLabels = [] as Array<any>;
-    vdoEntityLabels = {} as Record<string, Array<any>>;
-    pageBlocks: Array<number> = [];
-    pageRecord: Array<number> = [];
-    currentPage = 0;
-    totalPages = 0;
-    pageLimit = 10;
-    totalPageLimit = 0;
-    resultTotalCount = 0;
-    searchSuccess = false;
-
     @Output() searchCompleted: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor(
@@ -98,6 +83,7 @@ export class SearchComponent {
     updateContent(event: any) { }
 
     search() {
+        console.log("It goes here for search.")
         this.vulnerabilityService.search({}, this.utilService.searchObject).subscribe((response) => {
             this.utilService.vulnerabilities = response.data;
             this.utilService.paginationObject.totalPages = response.total;
@@ -113,5 +99,13 @@ export class SearchComponent {
             this.utilService.searchObject.cvss.push(item);
         }
         this.updateContent(event);
+    }
+
+    onDateChange(event: any, field: string) {
+        if (field === 'fromDate') {
+            this.utilService.searchObject.publishedDate.fromDate = event.target.value;
+        } else if (field === 'toDate') {
+            this.utilService.searchObject.publishedDate.toDate = event.target.value;
+        }
     }
 }

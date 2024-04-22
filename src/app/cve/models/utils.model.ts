@@ -1,7 +1,7 @@
-export class DatePeriod {
+export class DateRange {
     fromDate: Date = new Date();
     toDate: Date = new Date();
-    isTouched: boolean = false;
+    //isTouched: boolean = false;
 }
 
 export interface Attribute {
@@ -53,8 +53,7 @@ export class Attributes {
 export class Search {
     cveId: string = "";
     cpe: string = "";
-    publishedDate: DatePeriod = new DatePeriod();
+    publishedDate: DateRange = new DateRange();
     cvss: string[] = [];
     vdo: Attributes = new Attributes();
-
 }

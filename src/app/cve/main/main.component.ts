@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChildren, ElementRef, QueryList } from '@angular
 import { VulnerabilitiesService } from '../../services/vulnerabilities.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CveUtilService } from '../cve-util-service';
+import { HttpLoadingService } from '../../services/shared/http-loading.service';
 
 @Component({
     selector: 'app-main',
@@ -23,12 +24,14 @@ export class MainComponent implements OnInit {
         private vulnerabilityService: VulnerabilitiesService,
         public utilService: CveUtilService,
         public router: Router,
+        public loadingService: HttpLoadingService,
         private activatedRoute: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
         var type = performance.getEntriesByType("navigation")[0].entryType;
         console.log(type)
+        console.log("Step 1: ngOnInit function initializes the application.")
         this.activatedRoute.queryParams.subscribe((params) => {
             this.utilService.paginationObject.currentPage = params['page'] || 1;
             this.queryMethod();
@@ -37,6 +40,7 @@ export class MainComponent implements OnInit {
     }
 
     queryMethod() {
+        console.log("Step 2: queryMethod()\nValue of search: ", this.activatedRoute.snapshot.queryParams['search'])
         const isSearch = this.activatedRoute.snapshot.queryParams['search'] || 'false';
         if (isSearch == 'true') {
             this.search();
@@ -56,10 +60,9 @@ export class MainComponent implements OnInit {
     onSearch() {
         const isSearch = this.activatedRoute.snapshot.queryParams['search'] || false;
         const page = this.activatedRoute.snapshot.queryParams['page'];
-        console.log("Hits here.")
+        console.log("Step 1. Search Button was clicked. onSearch function updates the URL and queries output.");
         if (page == '1' && isSearch == 'true') {
             this.queryMethod();
-
         } else {
             this.router.navigate(['/vulnerabilities'], {
                 queryParams: { page: 1, search: 'true' },
@@ -87,20 +90,30 @@ export class MainComponent implements OnInit {
         this.vulnerabilityService
             .findAll(this.getOptions())
             .subscribe((response) => {
+                console.log("Step 4: paginate() function updates vulnerabilities array.", response.data);
                 this.utilService.vulnerabilities = response.data;
-                console.log(this.utilService.vulnerabilities)
+                console.log("Step 5: paginate() function updates totalPages.", response.total);
                 this.utilService.paginationObject.totalPages = response.total;
             });
     }
 
     search() {
+        console.log("Step 3: search() function updates vulnerabilities array.");
         this.totalItems = 0;
         this.vulnerabilityService
             .search(this.getOptions(), this.utilService.searchObject)
             .subscribe((response) => {
                 this.utilService.vulnerabilities = response.data;
+                console.log("Updated vulnerabilities", this.utilService.vulnerabilities);
                 this.utilService.paginationObject.totalPages = response.total;
-            });
+                console.log("Total Pages: ", this.utilService.paginationObject.totalPages);
+                console.log("Current Page: ", this.utilService.paginationObject.currentPage);
+            },);
+    }
+
+    logItem(item: any) {
+        console.log("Item: ", item);
+        return null;
     }
 
     scrollToCard(index: number) {
