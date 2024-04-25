@@ -1,4 +1,4 @@
-<div style="height: 45px !important;"></div>
+<div style="height: 20px !important;"></div>
 <div class="steps border border-radius-top-bottom border-space">
     <div class="row header mb-0">
         <div class="col-md-12 py-1 px-2">
@@ -40,13 +40,15 @@
             </h4>
         </div>
         <div class="collapse show" id="date">
-            <div class="row mb-3 px-3">
-                <div class="col-md-6">
+            <div class="row px-3">
+                <div class="col-md-12">
                     <label for="fromDate" class="text-secondary">Start Date</label>
                     <input type="date" id="fromDate" [(ngModel)]="this.utilService.searchObject.publishedDate.fromDate"
                         (change)="onDateChange($event, 'startDate')" name="fromDate" class="form-control p-1" />
                 </div>
-                <div class=" col-md-6">
+            </div>
+            <div class="row mb-3 px-3">
+                <div class=" col-md-12">
                     <label for="toDate" class="text-secondary">End Date</label>
                     <input type="date" [(ngModel)]="this.utilService.searchObject.publishedDate.toDate"
                         (change)="onDateChange($event, 'toDate')" name="toDate" class="form-control p-1" />
