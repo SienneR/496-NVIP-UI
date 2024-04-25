@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CveUtilService } from '../cve-util-service';
+import { Router } from '@angular/router';
 import { HttpLoadingService } from '../../services/shared/http-loading.service';
 
 
@@ -29,7 +30,8 @@ export class CveComponent implements OnInit {
     constructor(
         public utilService:CveUtilService,
         private Activeroute: ActivatedRoute,
-        public loadingService:HttpLoadingService
+        public loadingService:HttpLoadingService,
+        public router: Router
     ) {}
 
     ngOnInit(): void {

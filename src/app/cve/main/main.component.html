@@ -1,6 +1,6 @@
 <app-page-header></app-page-header>
-<div class="wrapper ">
-    <div class="sidebar-main left-sidebar border-end border-1 border-start-0">
+<div class="wrapper">
+    <div class="sidebar-main left-sidebar" style="border-right: 1px solid black;">
         <button class="btn close-sidebar-button">
             <i class="fa fa-times hover-danger text-dark"></i>
         </button>
@@ -9,24 +9,21 @@
         </ul>
     </div>
 
-    <div class="contents">
+    <div class="contents" style="border-right: 1px solid black;">
         <div class="container">
-            <div class="mt-5 sticky-top" *ngIf="loadingService.getLoading() == true">
-                <app-spinner></app-spinner>
+            <app-spinner *ngIf="isLoading"></app-spinner>
+            <div class="mt-5" *ngIf="!isLoading">
+                <div style="padding-left: 275px;">
+                    <pagination-controls (pageChange)="pageChanged($event)"
+                        (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
+                        [responsive]="true" [autoHide]="true" class="custom-pagination">
+                    </pagination-controls>
+                </div>
             </div>
-            <div class="text-center mt-5" *ngIf="loadingService.getLoading() == false">
-                <pagination-controls (pageChange)="pageChanged($event)"
-                    (pageChange)="this.utilService.paginationObject.currentPage= $event" [maxSize]="8"
-                    [responsive]="true" [autoHide]="true" class="custom-pagination">
-                </pagination-controls>
-            </div>
-            <div *ngIf="loadingService.getLoading() == false" class="content-container my-7 mx-md-4">
-                <div class="card"
-                    *ngFor="let item of this.utilService.vulnerabilities | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems}; let i = index;"
+            <div *ngIf="!isLoading" class="content-container">
+                <div class="card ml-20"
+                    *ngFor="let item of this.utilService.vulnerabilities | paginate: { itemsPerPage: 10, currentPage: this.utilService.paginationObject.currentPage, totalItems: this.totalItems};"
                     #card>
-                    {{ logItem(item) }}
-                    <!-- Outputs the details of the vulnerabilities-->
-                    <!-- <pre>{{ item | json }}</pre> -->
                     <div class="card-header">
                         <h4 class=""><i class="fa fa-bug text-danger"></i> {{item.cveId}}</h4>
                         <div class="tool">
